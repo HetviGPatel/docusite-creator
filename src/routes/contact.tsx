@@ -90,17 +90,8 @@ function ContactPage() {
             {/* Social */}
             <div className="mt-8">
               <p className="font-semibold text-sm text-foreground mb-3">Follow Us</p>
-              <div className="flex gap-3">
-                {[
-                  { icon: Linkedin, label: "LinkedIn" },
-                  { icon: Facebook, label: "Facebook" },
-                  { icon: Instagram, label: "Instagram" },
-                  { icon: Twitter, label: "Twitter/X" },
-                ].map(s => (
-                  <div key={s.label} className="w-10 h-10 rounded-lg bg-navy flex items-center justify-center text-navy-foreground hover:bg-gold hover:text-gold-foreground transition-colors cursor-pointer">
-                    <s.icon className="w-4 h-4" />
-                  </div>
-                ))}
+              <div className="flex gap-3 text-sm text-muted-foreground">
+                <span>LinkedIn</span> · <span>Facebook</span> · <span>Instagram</span> · <span>Twitter/X</span>
               </div>
             </div>
           </div>
