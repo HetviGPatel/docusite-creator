@@ -34,6 +34,18 @@ import { Route as ProductsElectricalsElectronicsRouteImport } from './routes/pro
 import { Route as ProductsDefenceAerospaceRouteImport } from './routes/products.defence-aerospace'
 import { Route as ProductsAutomobilePartsRouteImport } from './routes/products.automobile-parts'
 import { Route as ProductsAgroPharmaRouteImport } from './routes/products.agro-pharma'
+import { Route as IndustriesMetroRailRouteImport } from './routes/industries.metro-rail'
+import { Route as IndustriesMediaRouteImport } from './routes/industries.media'
+import { Route as IndustriesManufacturingRouteImport } from './routes/industries.manufacturing'
+import { Route as IndustriesLogisticsRouteImport } from './routes/industries.logistics'
+import { Route as IndustriesInfotechRouteImport } from './routes/industries.infotech'
+import { Route as IndustriesIndianRailwaysRouteImport } from './routes/industries.indian-railways'
+import { Route as IndustriesHealthcarePharmaRouteImport } from './routes/industries.healthcare-pharma'
+import { Route as IndustriesEnvironmentRouteImport } from './routes/industries.environment'
+import { Route as IndustriesEnergyPowerRouteImport } from './routes/industries.energy-power'
+import { Route as IndustriesConstructionEpcRouteImport } from './routes/industries.construction-epc'
+import { Route as IndustriesAgricultureRouteImport } from './routes/industries.agriculture'
+import { Route as IndustriesAerospaceDefenceRouteImport } from './routes/industries.aerospace-defence'
 
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
@@ -165,6 +177,70 @@ const ProductsAgroPharmaRoute = ProductsAgroPharmaRouteImport.update({
   path: '/agro-pharma',
   getParentRoute: () => ProductsRoute,
 } as any)
+const IndustriesMetroRailRoute = IndustriesMetroRailRouteImport.update({
+  id: '/metro-rail',
+  path: '/metro-rail',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesMediaRoute = IndustriesMediaRouteImport.update({
+  id: '/media',
+  path: '/media',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesManufacturingRoute = IndustriesManufacturingRouteImport.update({
+  id: '/manufacturing',
+  path: '/manufacturing',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesLogisticsRoute = IndustriesLogisticsRouteImport.update({
+  id: '/logistics',
+  path: '/logistics',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesInfotechRoute = IndustriesInfotechRouteImport.update({
+  id: '/infotech',
+  path: '/infotech',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesIndianRailwaysRoute =
+  IndustriesIndianRailwaysRouteImport.update({
+    id: '/indian-railways',
+    path: '/indian-railways',
+    getParentRoute: () => IndustriesRoute,
+  } as any)
+const IndustriesHealthcarePharmaRoute =
+  IndustriesHealthcarePharmaRouteImport.update({
+    id: '/healthcare-pharma',
+    path: '/healthcare-pharma',
+    getParentRoute: () => IndustriesRoute,
+  } as any)
+const IndustriesEnvironmentRoute = IndustriesEnvironmentRouteImport.update({
+  id: '/environment',
+  path: '/environment',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesEnergyPowerRoute = IndustriesEnergyPowerRouteImport.update({
+  id: '/energy-power',
+  path: '/energy-power',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesConstructionEpcRoute =
+  IndustriesConstructionEpcRouteImport.update({
+    id: '/construction-epc',
+    path: '/construction-epc',
+    getParentRoute: () => IndustriesRoute,
+  } as any)
+const IndustriesAgricultureRoute = IndustriesAgricultureRouteImport.update({
+  id: '/agriculture',
+  path: '/agriculture',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesAerospaceDefenceRoute =
+  IndustriesAerospaceDefenceRouteImport.update({
+    id: '/aerospace-defence',
+    path: '/aerospace-defence',
+    getParentRoute: () => IndustriesRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -175,6 +251,18 @@ export interface FileRoutesByFullPath {
   '/industries': typeof IndustriesRouteWithChildren
   '/products': typeof ProductsRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
+  '/industries/aerospace-defence': typeof IndustriesAerospaceDefenceRoute
+  '/industries/agriculture': typeof IndustriesAgricultureRoute
+  '/industries/construction-epc': typeof IndustriesConstructionEpcRoute
+  '/industries/energy-power': typeof IndustriesEnergyPowerRoute
+  '/industries/environment': typeof IndustriesEnvironmentRoute
+  '/industries/healthcare-pharma': typeof IndustriesHealthcarePharmaRoute
+  '/industries/indian-railways': typeof IndustriesIndianRailwaysRoute
+  '/industries/infotech': typeof IndustriesInfotechRoute
+  '/industries/logistics': typeof IndustriesLogisticsRoute
+  '/industries/manufacturing': typeof IndustriesManufacturingRoute
+  '/industries/media': typeof IndustriesMediaRoute
+  '/industries/metro-rail': typeof IndustriesMetroRailRoute
   '/products/agro-pharma': typeof ProductsAgroPharmaRoute
   '/products/automobile-parts': typeof ProductsAutomobilePartsRoute
   '/products/defence-aerospace': typeof ProductsDefenceAerospaceRoute
@@ -199,6 +287,18 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/group': typeof GroupRoute
+  '/industries/aerospace-defence': typeof IndustriesAerospaceDefenceRoute
+  '/industries/agriculture': typeof IndustriesAgricultureRoute
+  '/industries/construction-epc': typeof IndustriesConstructionEpcRoute
+  '/industries/energy-power': typeof IndustriesEnergyPowerRoute
+  '/industries/environment': typeof IndustriesEnvironmentRoute
+  '/industries/healthcare-pharma': typeof IndustriesHealthcarePharmaRoute
+  '/industries/indian-railways': typeof IndustriesIndianRailwaysRoute
+  '/industries/infotech': typeof IndustriesInfotechRoute
+  '/industries/logistics': typeof IndustriesLogisticsRoute
+  '/industries/manufacturing': typeof IndustriesManufacturingRoute
+  '/industries/media': typeof IndustriesMediaRoute
+  '/industries/metro-rail': typeof IndustriesMetroRailRoute
   '/products/agro-pharma': typeof ProductsAgroPharmaRoute
   '/products/automobile-parts': typeof ProductsAutomobilePartsRoute
   '/products/defence-aerospace': typeof ProductsDefenceAerospaceRoute
@@ -227,6 +327,18 @@ export interface FileRoutesById {
   '/industries': typeof IndustriesRouteWithChildren
   '/products': typeof ProductsRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
+  '/industries/aerospace-defence': typeof IndustriesAerospaceDefenceRoute
+  '/industries/agriculture': typeof IndustriesAgricultureRoute
+  '/industries/construction-epc': typeof IndustriesConstructionEpcRoute
+  '/industries/energy-power': typeof IndustriesEnergyPowerRoute
+  '/industries/environment': typeof IndustriesEnvironmentRoute
+  '/industries/healthcare-pharma': typeof IndustriesHealthcarePharmaRoute
+  '/industries/indian-railways': typeof IndustriesIndianRailwaysRoute
+  '/industries/infotech': typeof IndustriesInfotechRoute
+  '/industries/logistics': typeof IndustriesLogisticsRoute
+  '/industries/manufacturing': typeof IndustriesManufacturingRoute
+  '/industries/media': typeof IndustriesMediaRoute
+  '/industries/metro-rail': typeof IndustriesMetroRailRoute
   '/products/agro-pharma': typeof ProductsAgroPharmaRoute
   '/products/automobile-parts': typeof ProductsAutomobilePartsRoute
   '/products/defence-aerospace': typeof ProductsDefenceAerospaceRoute
@@ -256,6 +368,18 @@ export interface FileRouteTypes {
     | '/industries'
     | '/products'
     | '/services'
+    | '/industries/aerospace-defence'
+    | '/industries/agriculture'
+    | '/industries/construction-epc'
+    | '/industries/energy-power'
+    | '/industries/environment'
+    | '/industries/healthcare-pharma'
+    | '/industries/indian-railways'
+    | '/industries/infotech'
+    | '/industries/logistics'
+    | '/industries/manufacturing'
+    | '/industries/media'
+    | '/industries/metro-rail'
     | '/products/agro-pharma'
     | '/products/automobile-parts'
     | '/products/defence-aerospace'
@@ -280,6 +404,18 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/group'
+    | '/industries/aerospace-defence'
+    | '/industries/agriculture'
+    | '/industries/construction-epc'
+    | '/industries/energy-power'
+    | '/industries/environment'
+    | '/industries/healthcare-pharma'
+    | '/industries/indian-railways'
+    | '/industries/infotech'
+    | '/industries/logistics'
+    | '/industries/manufacturing'
+    | '/industries/media'
+    | '/industries/metro-rail'
     | '/products/agro-pharma'
     | '/products/automobile-parts'
     | '/products/defence-aerospace'
@@ -307,6 +443,18 @@ export interface FileRouteTypes {
     | '/industries'
     | '/products'
     | '/services'
+    | '/industries/aerospace-defence'
+    | '/industries/agriculture'
+    | '/industries/construction-epc'
+    | '/industries/energy-power'
+    | '/industries/environment'
+    | '/industries/healthcare-pharma'
+    | '/industries/indian-railways'
+    | '/industries/infotech'
+    | '/industries/logistics'
+    | '/industries/manufacturing'
+    | '/industries/media'
+    | '/industries/metro-rail'
     | '/products/agro-pharma'
     | '/products/automobile-parts'
     | '/products/defence-aerospace'
@@ -514,14 +662,122 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsAgroPharmaRouteImport
       parentRoute: typeof ProductsRoute
     }
+    '/industries/metro-rail': {
+      id: '/industries/metro-rail'
+      path: '/metro-rail'
+      fullPath: '/industries/metro-rail'
+      preLoaderRoute: typeof IndustriesMetroRailRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/media': {
+      id: '/industries/media'
+      path: '/media'
+      fullPath: '/industries/media'
+      preLoaderRoute: typeof IndustriesMediaRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/manufacturing': {
+      id: '/industries/manufacturing'
+      path: '/manufacturing'
+      fullPath: '/industries/manufacturing'
+      preLoaderRoute: typeof IndustriesManufacturingRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/logistics': {
+      id: '/industries/logistics'
+      path: '/logistics'
+      fullPath: '/industries/logistics'
+      preLoaderRoute: typeof IndustriesLogisticsRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/infotech': {
+      id: '/industries/infotech'
+      path: '/infotech'
+      fullPath: '/industries/infotech'
+      preLoaderRoute: typeof IndustriesInfotechRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/indian-railways': {
+      id: '/industries/indian-railways'
+      path: '/indian-railways'
+      fullPath: '/industries/indian-railways'
+      preLoaderRoute: typeof IndustriesIndianRailwaysRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/healthcare-pharma': {
+      id: '/industries/healthcare-pharma'
+      path: '/healthcare-pharma'
+      fullPath: '/industries/healthcare-pharma'
+      preLoaderRoute: typeof IndustriesHealthcarePharmaRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/environment': {
+      id: '/industries/environment'
+      path: '/environment'
+      fullPath: '/industries/environment'
+      preLoaderRoute: typeof IndustriesEnvironmentRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/energy-power': {
+      id: '/industries/energy-power'
+      path: '/energy-power'
+      fullPath: '/industries/energy-power'
+      preLoaderRoute: typeof IndustriesEnergyPowerRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/construction-epc': {
+      id: '/industries/construction-epc'
+      path: '/construction-epc'
+      fullPath: '/industries/construction-epc'
+      preLoaderRoute: typeof IndustriesConstructionEpcRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/agriculture': {
+      id: '/industries/agriculture'
+      path: '/agriculture'
+      fullPath: '/industries/agriculture'
+      preLoaderRoute: typeof IndustriesAgricultureRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/aerospace-defence': {
+      id: '/industries/aerospace-defence'
+      path: '/aerospace-defence'
+      fullPath: '/industries/aerospace-defence'
+      preLoaderRoute: typeof IndustriesAerospaceDefenceRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
   }
 }
 
 interface IndustriesRouteChildren {
+  IndustriesAerospaceDefenceRoute: typeof IndustriesAerospaceDefenceRoute
+  IndustriesAgricultureRoute: typeof IndustriesAgricultureRoute
+  IndustriesConstructionEpcRoute: typeof IndustriesConstructionEpcRoute
+  IndustriesEnergyPowerRoute: typeof IndustriesEnergyPowerRoute
+  IndustriesEnvironmentRoute: typeof IndustriesEnvironmentRoute
+  IndustriesHealthcarePharmaRoute: typeof IndustriesHealthcarePharmaRoute
+  IndustriesIndianRailwaysRoute: typeof IndustriesIndianRailwaysRoute
+  IndustriesInfotechRoute: typeof IndustriesInfotechRoute
+  IndustriesLogisticsRoute: typeof IndustriesLogisticsRoute
+  IndustriesManufacturingRoute: typeof IndustriesManufacturingRoute
+  IndustriesMediaRoute: typeof IndustriesMediaRoute
+  IndustriesMetroRailRoute: typeof IndustriesMetroRailRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
 }
 
 const IndustriesRouteChildren: IndustriesRouteChildren = {
+  IndustriesAerospaceDefenceRoute: IndustriesAerospaceDefenceRoute,
+  IndustriesAgricultureRoute: IndustriesAgricultureRoute,
+  IndustriesConstructionEpcRoute: IndustriesConstructionEpcRoute,
+  IndustriesEnergyPowerRoute: IndustriesEnergyPowerRoute,
+  IndustriesEnvironmentRoute: IndustriesEnvironmentRoute,
+  IndustriesHealthcarePharmaRoute: IndustriesHealthcarePharmaRoute,
+  IndustriesIndianRailwaysRoute: IndustriesIndianRailwaysRoute,
+  IndustriesInfotechRoute: IndustriesInfotechRoute,
+  IndustriesLogisticsRoute: IndustriesLogisticsRoute,
+  IndustriesManufacturingRoute: IndustriesManufacturingRoute,
+  IndustriesMediaRoute: IndustriesMediaRoute,
+  IndustriesMetroRailRoute: IndustriesMetroRailRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
 }
 
