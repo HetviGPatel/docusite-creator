@@ -26,6 +26,14 @@ import { Route as ServicesIndustrialRouteImport } from './routes/services.indust
 import { Route as ServicesIcbmroRouteImport } from './routes/services.icbmro'
 import { Route as ServicesDefenceRouteImport } from './routes/services.defence'
 import { Route as ServicesCommercialRouteImport } from './routes/services.commercial'
+import { Route as ProductsRailwayComponentsRouteImport } from './routes/products.railway-components'
+import { Route as ProductsMetroRailSystemsRouteImport } from './routes/products.metro-rail-systems'
+import { Route as ProductsIndustrialMachineryRouteImport } from './routes/products.industrial-machinery'
+import { Route as ProductsGreenEnergyRouteImport } from './routes/products.green-energy'
+import { Route as ProductsElectricalsElectronicsRouteImport } from './routes/products.electricals-electronics'
+import { Route as ProductsDefenceAerospaceRouteImport } from './routes/products.defence-aerospace'
+import { Route as ProductsAutomobilePartsRouteImport } from './routes/products.automobile-parts'
+import { Route as ProductsAgroPharmaRouteImport } from './routes/products.agro-pharma'
 
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
@@ -112,6 +120,51 @@ const ServicesCommercialRoute = ServicesCommercialRouteImport.update({
   path: '/commercial',
   getParentRoute: () => ServicesRoute,
 } as any)
+const ProductsRailwayComponentsRoute =
+  ProductsRailwayComponentsRouteImport.update({
+    id: '/railway-components',
+    path: '/railway-components',
+    getParentRoute: () => ProductsRoute,
+  } as any)
+const ProductsMetroRailSystemsRoute =
+  ProductsMetroRailSystemsRouteImport.update({
+    id: '/metro-rail-systems',
+    path: '/metro-rail-systems',
+    getParentRoute: () => ProductsRoute,
+  } as any)
+const ProductsIndustrialMachineryRoute =
+  ProductsIndustrialMachineryRouteImport.update({
+    id: '/industrial-machinery',
+    path: '/industrial-machinery',
+    getParentRoute: () => ProductsRoute,
+  } as any)
+const ProductsGreenEnergyRoute = ProductsGreenEnergyRouteImport.update({
+  id: '/green-energy',
+  path: '/green-energy',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsElectricalsElectronicsRoute =
+  ProductsElectricalsElectronicsRouteImport.update({
+    id: '/electricals-electronics',
+    path: '/electricals-electronics',
+    getParentRoute: () => ProductsRoute,
+  } as any)
+const ProductsDefenceAerospaceRoute =
+  ProductsDefenceAerospaceRouteImport.update({
+    id: '/defence-aerospace',
+    path: '/defence-aerospace',
+    getParentRoute: () => ProductsRoute,
+  } as any)
+const ProductsAutomobilePartsRoute = ProductsAutomobilePartsRouteImport.update({
+  id: '/automobile-parts',
+  path: '/automobile-parts',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsAgroPharmaRoute = ProductsAgroPharmaRouteImport.update({
+  id: '/agro-pharma',
+  path: '/agro-pharma',
+  getParentRoute: () => ProductsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -122,6 +175,14 @@ export interface FileRoutesByFullPath {
   '/industries': typeof IndustriesRouteWithChildren
   '/products': typeof ProductsRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
+  '/products/agro-pharma': typeof ProductsAgroPharmaRoute
+  '/products/automobile-parts': typeof ProductsAutomobilePartsRoute
+  '/products/defence-aerospace': typeof ProductsDefenceAerospaceRoute
+  '/products/electricals-electronics': typeof ProductsElectricalsElectronicsRoute
+  '/products/green-energy': typeof ProductsGreenEnergyRoute
+  '/products/industrial-machinery': typeof ProductsIndustrialMachineryRoute
+  '/products/metro-rail-systems': typeof ProductsMetroRailSystemsRoute
+  '/products/railway-components': typeof ProductsRailwayComponentsRoute
   '/services/commercial': typeof ServicesCommercialRoute
   '/services/defence': typeof ServicesDefenceRoute
   '/services/icbmro': typeof ServicesIcbmroRoute
@@ -138,6 +199,14 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/group': typeof GroupRoute
+  '/products/agro-pharma': typeof ProductsAgroPharmaRoute
+  '/products/automobile-parts': typeof ProductsAutomobilePartsRoute
+  '/products/defence-aerospace': typeof ProductsDefenceAerospaceRoute
+  '/products/electricals-electronics': typeof ProductsElectricalsElectronicsRoute
+  '/products/green-energy': typeof ProductsGreenEnergyRoute
+  '/products/industrial-machinery': typeof ProductsIndustrialMachineryRoute
+  '/products/metro-rail-systems': typeof ProductsMetroRailSystemsRoute
+  '/products/railway-components': typeof ProductsRailwayComponentsRoute
   '/services/commercial': typeof ServicesCommercialRoute
   '/services/defence': typeof ServicesDefenceRoute
   '/services/icbmro': typeof ServicesIcbmroRoute
@@ -158,6 +227,14 @@ export interface FileRoutesById {
   '/industries': typeof IndustriesRouteWithChildren
   '/products': typeof ProductsRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
+  '/products/agro-pharma': typeof ProductsAgroPharmaRoute
+  '/products/automobile-parts': typeof ProductsAutomobilePartsRoute
+  '/products/defence-aerospace': typeof ProductsDefenceAerospaceRoute
+  '/products/electricals-electronics': typeof ProductsElectricalsElectronicsRoute
+  '/products/green-energy': typeof ProductsGreenEnergyRoute
+  '/products/industrial-machinery': typeof ProductsIndustrialMachineryRoute
+  '/products/metro-rail-systems': typeof ProductsMetroRailSystemsRoute
+  '/products/railway-components': typeof ProductsRailwayComponentsRoute
   '/services/commercial': typeof ServicesCommercialRoute
   '/services/defence': typeof ServicesDefenceRoute
   '/services/icbmro': typeof ServicesIcbmroRoute
@@ -179,6 +256,14 @@ export interface FileRouteTypes {
     | '/industries'
     | '/products'
     | '/services'
+    | '/products/agro-pharma'
+    | '/products/automobile-parts'
+    | '/products/defence-aerospace'
+    | '/products/electricals-electronics'
+    | '/products/green-energy'
+    | '/products/industrial-machinery'
+    | '/products/metro-rail-systems'
+    | '/products/railway-components'
     | '/services/commercial'
     | '/services/defence'
     | '/services/icbmro'
@@ -195,6 +280,14 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/group'
+    | '/products/agro-pharma'
+    | '/products/automobile-parts'
+    | '/products/defence-aerospace'
+    | '/products/electricals-electronics'
+    | '/products/green-energy'
+    | '/products/industrial-machinery'
+    | '/products/metro-rail-systems'
+    | '/products/railway-components'
     | '/services/commercial'
     | '/services/defence'
     | '/services/icbmro'
@@ -214,6 +307,14 @@ export interface FileRouteTypes {
     | '/industries'
     | '/products'
     | '/services'
+    | '/products/agro-pharma'
+    | '/products/automobile-parts'
+    | '/products/defence-aerospace'
+    | '/products/electricals-electronics'
+    | '/products/green-energy'
+    | '/products/industrial-machinery'
+    | '/products/metro-rail-systems'
+    | '/products/railway-components'
     | '/services/commercial'
     | '/services/defence'
     | '/services/icbmro'
@@ -357,6 +458,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesCommercialRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/products/railway-components': {
+      id: '/products/railway-components'
+      path: '/railway-components'
+      fullPath: '/products/railway-components'
+      preLoaderRoute: typeof ProductsRailwayComponentsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/metro-rail-systems': {
+      id: '/products/metro-rail-systems'
+      path: '/metro-rail-systems'
+      fullPath: '/products/metro-rail-systems'
+      preLoaderRoute: typeof ProductsMetroRailSystemsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/industrial-machinery': {
+      id: '/products/industrial-machinery'
+      path: '/industrial-machinery'
+      fullPath: '/products/industrial-machinery'
+      preLoaderRoute: typeof ProductsIndustrialMachineryRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/green-energy': {
+      id: '/products/green-energy'
+      path: '/green-energy'
+      fullPath: '/products/green-energy'
+      preLoaderRoute: typeof ProductsGreenEnergyRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/electricals-electronics': {
+      id: '/products/electricals-electronics'
+      path: '/electricals-electronics'
+      fullPath: '/products/electricals-electronics'
+      preLoaderRoute: typeof ProductsElectricalsElectronicsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/defence-aerospace': {
+      id: '/products/defence-aerospace'
+      path: '/defence-aerospace'
+      fullPath: '/products/defence-aerospace'
+      preLoaderRoute: typeof ProductsDefenceAerospaceRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/automobile-parts': {
+      id: '/products/automobile-parts'
+      path: '/automobile-parts'
+      fullPath: '/products/automobile-parts'
+      preLoaderRoute: typeof ProductsAutomobilePartsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/agro-pharma': {
+      id: '/products/agro-pharma'
+      path: '/agro-pharma'
+      fullPath: '/products/agro-pharma'
+      preLoaderRoute: typeof ProductsAgroPharmaRouteImport
+      parentRoute: typeof ProductsRoute
+    }
   }
 }
 
@@ -373,10 +530,26 @@ const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
 )
 
 interface ProductsRouteChildren {
+  ProductsAgroPharmaRoute: typeof ProductsAgroPharmaRoute
+  ProductsAutomobilePartsRoute: typeof ProductsAutomobilePartsRoute
+  ProductsDefenceAerospaceRoute: typeof ProductsDefenceAerospaceRoute
+  ProductsElectricalsElectronicsRoute: typeof ProductsElectricalsElectronicsRoute
+  ProductsGreenEnergyRoute: typeof ProductsGreenEnergyRoute
+  ProductsIndustrialMachineryRoute: typeof ProductsIndustrialMachineryRoute
+  ProductsMetroRailSystemsRoute: typeof ProductsMetroRailSystemsRoute
+  ProductsRailwayComponentsRoute: typeof ProductsRailwayComponentsRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
 const ProductsRouteChildren: ProductsRouteChildren = {
+  ProductsAgroPharmaRoute: ProductsAgroPharmaRoute,
+  ProductsAutomobilePartsRoute: ProductsAutomobilePartsRoute,
+  ProductsDefenceAerospaceRoute: ProductsDefenceAerospaceRoute,
+  ProductsElectricalsElectronicsRoute: ProductsElectricalsElectronicsRoute,
+  ProductsGreenEnergyRoute: ProductsGreenEnergyRoute,
+  ProductsIndustrialMachineryRoute: ProductsIndustrialMachineryRoute,
+  ProductsMetroRailSystemsRoute: ProductsMetroRailSystemsRoute,
+  ProductsRailwayComponentsRoute: ProductsRailwayComponentsRoute,
   ProductsIndexRoute: ProductsIndexRoute,
 }
 
