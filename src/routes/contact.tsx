@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SectionHeading } from "../components/SectionHeading";
-import { MapPin, Phone, Mail, Clock, Globe, Linkedin, Facebook, Instagram, Twitter } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Globe } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
