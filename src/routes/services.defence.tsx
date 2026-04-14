@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import defenceImg from "../../assets/defence-tech.jpg";
+import defenceImg from "../assets/defence-tech.jpg";
 import { Shield, ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/services/defence")({

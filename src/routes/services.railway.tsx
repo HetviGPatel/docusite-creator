@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { SectionHeading } from "../../components/SectionHeading";
-import railwayImg from "../../assets/railway-services.jpg";
+import railwayImg from "../assets/railway-services.jpg";
 import { Train, ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/services/railway")({

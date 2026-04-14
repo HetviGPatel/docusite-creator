@@ -20,6 +20,12 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
+import { Route as ServicesRailwayRouteImport } from './routes/services.railway'
+import { Route as ServicesMetroRailRouteImport } from './routes/services.metro-rail'
+import { Route as ServicesIndustrialRouteImport } from './routes/services.industrial'
+import { Route as ServicesIcbmroRouteImport } from './routes/services.icbmro'
+import { Route as ServicesDefenceRouteImport } from './routes/services.defence'
+import { Route as ServicesCommercialRouteImport } from './routes/services.commercial'
 
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
@@ -76,6 +82,36 @@ const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => IndustriesRoute,
 } as any)
+const ServicesRailwayRoute = ServicesRailwayRouteImport.update({
+  id: '/railway',
+  path: '/railway',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesMetroRailRoute = ServicesMetroRailRouteImport.update({
+  id: '/metro-rail',
+  path: '/metro-rail',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesIndustrialRoute = ServicesIndustrialRouteImport.update({
+  id: '/industrial',
+  path: '/industrial',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesIcbmroRoute = ServicesIcbmroRouteImport.update({
+  id: '/icbmro',
+  path: '/icbmro',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesDefenceRoute = ServicesDefenceRouteImport.update({
+  id: '/defence',
+  path: '/defence',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesCommercialRoute = ServicesCommercialRouteImport.update({
+  id: '/commercial',
+  path: '/commercial',
+  getParentRoute: () => ServicesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -86,6 +122,12 @@ export interface FileRoutesByFullPath {
   '/industries': typeof IndustriesRouteWithChildren
   '/products': typeof ProductsRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
+  '/services/commercial': typeof ServicesCommercialRoute
+  '/services/defence': typeof ServicesDefenceRoute
+  '/services/icbmro': typeof ServicesIcbmroRoute
+  '/services/industrial': typeof ServicesIndustrialRoute
+  '/services/metro-rail': typeof ServicesMetroRailRoute
+  '/services/railway': typeof ServicesRailwayRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -96,6 +138,12 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/group': typeof GroupRoute
+  '/services/commercial': typeof ServicesCommercialRoute
+  '/services/defence': typeof ServicesDefenceRoute
+  '/services/icbmro': typeof ServicesIcbmroRoute
+  '/services/industrial': typeof ServicesIndustrialRoute
+  '/services/metro-rail': typeof ServicesMetroRailRoute
+  '/services/railway': typeof ServicesRailwayRoute
   '/industries': typeof IndustriesIndexRoute
   '/products': typeof ProductsIndexRoute
   '/services': typeof ServicesIndexRoute
@@ -110,6 +158,12 @@ export interface FileRoutesById {
   '/industries': typeof IndustriesRouteWithChildren
   '/products': typeof ProductsRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
+  '/services/commercial': typeof ServicesCommercialRoute
+  '/services/defence': typeof ServicesDefenceRoute
+  '/services/icbmro': typeof ServicesIcbmroRoute
+  '/services/industrial': typeof ServicesIndustrialRoute
+  '/services/metro-rail': typeof ServicesMetroRailRoute
+  '/services/railway': typeof ServicesRailwayRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -125,6 +179,12 @@ export interface FileRouteTypes {
     | '/industries'
     | '/products'
     | '/services'
+    | '/services/commercial'
+    | '/services/defence'
+    | '/services/icbmro'
+    | '/services/industrial'
+    | '/services/metro-rail'
+    | '/services/railway'
     | '/industries/'
     | '/products/'
     | '/services/'
@@ -135,6 +195,12 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/group'
+    | '/services/commercial'
+    | '/services/defence'
+    | '/services/icbmro'
+    | '/services/industrial'
+    | '/services/metro-rail'
+    | '/services/railway'
     | '/industries'
     | '/products'
     | '/services'
@@ -148,6 +214,12 @@ export interface FileRouteTypes {
     | '/industries'
     | '/products'
     | '/services'
+    | '/services/commercial'
+    | '/services/defence'
+    | '/services/icbmro'
+    | '/services/industrial'
+    | '/services/metro-rail'
+    | '/services/railway'
     | '/industries/'
     | '/products/'
     | '/services/'
@@ -243,6 +315,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesIndexRouteImport
       parentRoute: typeof IndustriesRoute
     }
+    '/services/railway': {
+      id: '/services/railway'
+      path: '/railway'
+      fullPath: '/services/railway'
+      preLoaderRoute: typeof ServicesRailwayRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/metro-rail': {
+      id: '/services/metro-rail'
+      path: '/metro-rail'
+      fullPath: '/services/metro-rail'
+      preLoaderRoute: typeof ServicesMetroRailRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/industrial': {
+      id: '/services/industrial'
+      path: '/industrial'
+      fullPath: '/services/industrial'
+      preLoaderRoute: typeof ServicesIndustrialRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/icbmro': {
+      id: '/services/icbmro'
+      path: '/icbmro'
+      fullPath: '/services/icbmro'
+      preLoaderRoute: typeof ServicesIcbmroRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/defence': {
+      id: '/services/defence'
+      path: '/defence'
+      fullPath: '/services/defence'
+      preLoaderRoute: typeof ServicesDefenceRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/commercial': {
+      id: '/services/commercial'
+      path: '/commercial'
+      fullPath: '/services/commercial'
+      preLoaderRoute: typeof ServicesCommercialRouteImport
+      parentRoute: typeof ServicesRoute
+    }
   }
 }
 
@@ -271,10 +385,22 @@ const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
 )
 
 interface ServicesRouteChildren {
+  ServicesCommercialRoute: typeof ServicesCommercialRoute
+  ServicesDefenceRoute: typeof ServicesDefenceRoute
+  ServicesIcbmroRoute: typeof ServicesIcbmroRoute
+  ServicesIndustrialRoute: typeof ServicesIndustrialRoute
+  ServicesMetroRailRoute: typeof ServicesMetroRailRoute
+  ServicesRailwayRoute: typeof ServicesRailwayRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesCommercialRoute: ServicesCommercialRoute,
+  ServicesDefenceRoute: ServicesDefenceRoute,
+  ServicesIcbmroRoute: ServicesIcbmroRoute,
+  ServicesIndustrialRoute: ServicesIndustrialRoute,
+  ServicesMetroRailRoute: ServicesMetroRailRoute,
+  ServicesRailwayRoute: ServicesRailwayRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
 

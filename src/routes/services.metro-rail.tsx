@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import metroImg from "../../assets/metro-rail.jpg";
+import metroImg from "../assets/metro-rail.jpg";
 import { Building2, ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/services/metro-rail")({
