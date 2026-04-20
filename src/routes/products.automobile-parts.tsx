@@ -1,31 +1,44 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { Car, ChevronRight } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { Car } from "lucide-react";
+import warehouseImg from "../assets/products-warehouse.jpg";
+import { DetailPage } from "../components/DetailPage";
 
 export const Route = createFileRoute("/products/automobile-parts")({
   component: Page,
   head: () => ({ meta: [{ title: "Automobile Parts — Jigisha Group" }, { name: "description", content: "250K+ automobile products — spares, EV components, lubricants, tyres, fleet supplies." }] }),
 });
 
-const items = ["Engine spares & accessories", "EV components & batteries", "Lubricants & coolants", "Tyres, tubes & brakes", "Fleet maintenance supplies", "Body parts & panels", "Electrical & lighting", "Filters & consumables"];
-
 function Page() {
   return (
-    <>
-      <section className="bg-hero-gradient py-20">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <Link to="/products" className="text-gold/80 text-xs font-semibold tracking-widest uppercase hover:text-gold">← All Products</Link>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-navy-foreground mt-2">Automobile Parts</h1>
-          <p className="mt-2 text-navy-foreground/70">250K+ products</p>
-        </div>
-      </section>
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {items.map(s => (<div key={s} className="flex items-start gap-3 bg-card rounded-xl p-5 border border-border shadow-card"><Car className="w-5 h-5 text-gold mt-0.5 shrink-0" /><span className="text-muted-foreground">{s}</span></div>))}
-          </div>
-          <div className="mt-12 text-center"><Link to="/contact" className="inline-flex items-center gap-1 px-6 py-3 bg-gold text-gold-foreground font-semibold rounded-lg hover:opacity-90">Request Catalogue <ChevronRight className="w-4 h-4" /></Link></div>
-        </div>
-      </section>
-    </>
+    <DetailPage
+      category="products"
+      title="Automobile Parts"
+      tagline="250K+ products — IC engine spares, EV components, lubricants, tyres, fleet supplies"
+      overview="Jigisha Group is a trusted multi-brand auto parts and fleet-supply partner for OEMs, dealers, fleet operators, transport corporations and after-market workshops. Our portfolio spans IC engine spares, EV components, batteries, tyres, lubricants and complete fleet maintenance kits with rapid PAN-India distribution."
+      heroImage={warehouseImg}
+      Icon={Car}
+      stats={[
+        { value: "250K+", label: "SKUs" },
+        { value: "Multi-brand", label: "Coverage" },
+        { value: "OEM", label: "Authorized" },
+        { value: "Same-day", label: "Dispatch" },
+      ]}
+      offerings={[
+        { title: "Engine Spares & Accessories", desc: "Pistons, rings, liners, gaskets, bearings, crankshafts, camshafts, valves, timing chains, water pumps, oil pumps and complete engine overhaul kits for cars, CVs and tractors." },
+        { title: "EV Components & Batteries", desc: "Lithium-ion batteries, BMS, motor controllers, traction motors, on-board chargers, DC-DC converters, EV cables and complete EV powertrain components." },
+        { title: "Lubricants & Coolants", desc: "Engine oils, gear oils, transmission fluids, hydraulic oils, brake fluids, coolants, greases and specialty lubricants from leading brands with bulk supply options." },
+        { title: "Tyres, Tubes & Brakes", desc: "Passenger, commercial vehicle, off-highway and two-wheeler tyres; brake pads, brake shoes, brake discs, master cylinders, calipers and complete brake-system parts." },
+        { title: "Fleet Maintenance Supplies", desc: "Filters (oil, air, fuel, cabin), wipers, bulbs, batteries, belts, hoses, fuses, fuses, mirrors and complete fleet upkeep consumables with VMI for large operators." },
+        { title: "Body Parts & Panels", desc: "Bumpers, fenders, doors, bonnets, windscreens, lamp assemblies, mirrors, door handles and exterior body trim for popular Indian car and CV models." },
+        { title: "Electrical & Lighting", desc: "Starters, alternators, ignition coils, spark plugs, sensors, headlamps, tail lamps, fog lamps, indicators, horns, wiring harnesses and ECUs." },
+        { title: "Filters & Consumables", desc: "Oil filters, air filters, fuel filters, cabin filters, hydraulic filters, fuel additives, cleaners, polishes and complete service-kit supplies for workshops." },
+      ]}
+      capabilities={["OEM authorized distribution","ARAI/BIS compliant parts","Multi-brand catalogue","Bulk fleet supply","Workshop kitting","E-commerce ready","Cold-chain for batteries","Hazmat handling","Reverse logistics","Warranty management","Technical training","Pan-India dealer network"]}
+      whyUs={[
+        { title: "Vast Catalogue", desc: "Genuine and OE-equivalent parts across all major Indian and global vehicle brands under one roof." },
+        { title: "Fleet Specialist", desc: "Dedicated VMI and fleet-supply contracts for transport corporations, logistics fleets and bus operators." },
+        { title: "EV-Future Ready", desc: "Comprehensive EV component portfolio supporting India's electric mobility transition." },
+      ]}
+    />
   );
 }

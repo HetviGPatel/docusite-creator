@@ -1,35 +1,39 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { Zap } from "lucide-react";
 import greenImg from "../assets/green-energy.jpg";
-import { Zap, ChevronRight } from "lucide-react";
+import { DetailPage } from "../components/DetailPage";
 
 export const Route = createFileRoute("/industries/energy-power")({
   component: Page,
-  head: () => ({ meta: [{ title: "Energy & Power — Jigisha Group" }, { name: "description", content: "Solar, Bio-CNG, sustainability services, energy efficiency, renewable energy EPC and waste-to-energy solutions." }] }),
+  head: () => ({ meta: [{ title: "Energy & Power — Jigisha Group" }, { name: "description", content: "Solar, Bio-CNG, energy efficiency, smart grid and waste-to-energy solutions." }] }),
 });
-
-const items = ["Solar power EPC & installation", "Bio-CNG plant setup", "Energy efficiency audits", "Renewable energy consulting", "Waste-to-energy solutions", "Smart grid & metering", "Power distribution equipment", "Green building certification"];
 
 function Page() {
   return (
-    <>
-      <section className="relative h-72 md:h-80 overflow-hidden">
-        <img src={greenImg} alt="Energy & Power" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-hero-gradient opacity-80" />
-        <div className="absolute inset-0 flex items-center justify-center text-center">
-          <div>
-            <Link to="/industries" className="text-gold/80 text-xs font-semibold tracking-widest uppercase hover:text-gold">← All Industries</Link>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-navy-foreground mt-2">Energy & Power</h1>
-          </div>
-        </div>
-      </section>
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {items.map(s => (<div key={s} className="flex items-start gap-3 bg-card rounded-xl p-5 border border-border shadow-card"><Zap className="w-5 h-5 text-gold mt-0.5 shrink-0" /><span className="text-muted-foreground">{s}</span></div>))}
-          </div>
-          <div className="mt-12 text-center"><Link to="/contact" className="inline-flex items-center gap-1 px-6 py-3 bg-gold text-gold-foreground font-semibold rounded-lg hover:opacity-90">Get in Touch <ChevronRight className="w-4 h-4" /></Link></div>
-        </div>
-      </section>
-    </>
+    <DetailPage
+      category="industries"
+      title="Energy & Power"
+      tagline="Renewable energy, smart grid and sustainability solutions for India's net-zero journey"
+      overview="From utility-scale solar farms and bio-CNG plants to smart grid roll-outs and energy efficiency for industries, Jigisha Group delivers complete renewable and conventional energy solutions — supporting India's commitment to 500 GW non-fossil capacity by 2030."
+      heroImage={greenImg}
+      Icon={Zap}
+      stats={[{ value: "MNRE", label: "Approved" }, { value: "ALMM", label: "Modules" }, { value: "PM-KUSUM", label: "Specialist" }, { value: "EnMS", label: "ISO 50001" }]}
+      offerings={[
+        { title: "Solar Power EPC & Installation", desc: "Rooftop, ground-mount and floating solar EPC — site survey to commissioning to long-term O&M with PPA and net-metering support." },
+        { title: "Bio-CNG Plant Setup", desc: "Anaerobic digestion, biogas upgradation, CBG dispensing under SATAT scheme — turnkey plants from waste streams." },
+        { title: "Energy Efficiency Audits", desc: "BEE-accredited energy audits, ECBC compliance, ISO 50001 implementation and demand-side management programmes." },
+        { title: "Renewable Energy Consulting", desc: "Feasibility, DPR, scheme advisory (PM-KUSUM, PM Surya Ghar, RTC tenders), techno-commercial evaluation." },
+        { title: "Waste-to-Energy Solutions", desc: "MSW incineration, biomass gasification, RDF, WTE plants with emission control and grid integration." },
+        { title: "Smart Grid & Metering", desc: "AMI roll-out, smart meters, DCUs, prepaid metering, demand response and grid analytics for DISCOMs." },
+        { title: "Power Distribution Equipment", desc: "Transformers, switchgear, RMUs, distribution automation and complete sub-station packages for utilities." },
+        { title: "Green Building Certification", desc: "IGBC/LEED advisory, water management, daylighting, HVAC optimization and net-zero building projects." },
+      ]}
+      capabilities={["MNRE-approved equipment","ALMM-listed modules","CEIG/DISCOM liaison","PPA/REC structuring","BEE-certified auditors","Performance monitoring","CAPEX/RESCO models","ESG reporting","Carbon accounting","Net-metering specialists","Battery storage integration","EV-charging linked solar"]}
+      whyUs={[
+        { title: "Full Stack Renewable", desc: "Solar, bio-energy, storage, smart meters, EV charging — every renewable lever under one partner." },
+        { title: "Scheme Expertise", desc: "Deep know-how of PM-KUSUM, PM Surya Ghar and central/state subsidy mechanics." },
+        { title: "Performance Guaranteed", desc: "Long-term O&M with generation guarantees, IoT monitoring and transparent reporting." },
+      ]}
+    />
   );
 }

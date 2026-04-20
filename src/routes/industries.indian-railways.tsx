@@ -1,36 +1,39 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { Train } from "lucide-react";
 import railwayImg from "../assets/railway-services.jpg";
-import { Train, ChevronRight } from "lucide-react";
+import { DetailPage } from "../components/DetailPage";
 
 export const Route = createFileRoute("/industries/indian-railways")({
   component: Page,
-  head: () => ({ meta: [{ title: "Indian Railways — Jigisha Group" }, { name: "description", content: "Complete supply, installation, testing & commissioning for Indian Railways — production units, maintenance sheds, divisions and zones." }] }),
+  head: () => ({ meta: [{ title: "Indian Railways — Jigisha Group" }, { name: "description", content: "End-to-end solutions for Indian Railways — Production Units, Maintenance Sheds, Divisions and Zones." }] }),
 });
-
-const items = ["Rolling stock supply & maintenance", "Signaling & telecom (S&T) systems", "OHE erection & commissioning", "KAWACH implementation support", "Station modernization & electrification", "Track machine maintenance & AMC", "Depot equipment installation", "ICBMRO & BMRO services", "PM Gati Shakti infrastructure", "IoT & AI-based smart railway solutions"];
 
 function Page() {
   return (
-    <>
-      <section className="relative h-72 md:h-80 overflow-hidden">
-        <img src={railwayImg} alt="Indian Railways" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-hero-gradient opacity-80" />
-        <div className="absolute inset-0 flex items-center justify-center text-center">
-          <div>
-            <Link to="/industries" className="text-gold/80 text-xs font-semibold tracking-widest uppercase hover:text-gold">← All Industries</Link>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-navy-foreground mt-2">Indian Railways</h1>
-            <p className="mt-3 text-navy-foreground/70 max-w-lg mx-auto">End-to-end solutions for India's largest rail network</p>
-          </div>
-        </div>
-      </section>
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {items.map(s => (<div key={s} className="flex items-start gap-3 bg-card rounded-xl p-5 border border-border shadow-card"><Train className="w-5 h-5 text-gold mt-0.5 shrink-0" /><span className="text-muted-foreground">{s}</span></div>))}
-          </div>
-          <div className="mt-12 text-center"><Link to="/contact" className="inline-flex items-center gap-1 px-6 py-3 bg-gold text-gold-foreground font-semibold rounded-lg hover:opacity-90">Get in Touch <ChevronRight className="w-4 h-4" /></Link></div>
-        </div>
-      </section>
-    </>
+    <DetailPage
+      category="industries"
+      title="Indian Railways"
+      tagline="Trusted partner across Production Units, Sheds, Divisions and all 17 Zones"
+      overview="Indian Railways is the backbone of national mobility, and Jigisha Group is one of its trusted partners — supplying components, executing turnkey projects, running ICBMRO contracts and integrating next-generation technologies like KAWACH and PM Gati Shakti across the network."
+      heroImage={railwayImg}
+      Icon={Train}
+      stats={[{ value: "17", label: "Zones Served" }, { value: "RDSO", label: "Approved" }, { value: "500K+", label: "Components" }, { value: "24x7", label: "Support" }]}
+      offerings={[
+        { title: "Rolling Stock Supply & Maintenance", desc: "Wheels, axles, bogies, brakes, couplers, HVAC, interiors, lighting and complete coach maintenance for ICF, LHB, Vande Bharat and EMU/MEMU rakes." },
+        { title: "Signaling & Telecom (S&T) Systems", desc: "Interlocking, point machines, axle counters, OFC backbone, GSM-R, Wi-Fi and complete station and trackside S&T integration." },
+        { title: "OHE Erection & Commissioning", desc: "Design, supply and erection of 25kV OHE — masts, cantilevers, contact wire, droppers and complete electrification corridors." },
+        { title: "KAWACH Implementation", desc: "On-board and trackside KAWACH (TCAS) component supply, RFID deployment, integration and commissioning support." },
+        { title: "Station Modernization & Electrification", desc: "Station redevelopment, lighting, MEP, accessibility, signage, passenger amenities and energy-efficient station retrofits." },
+        { title: "Track Machine AMC", desc: "Spares and maintenance for Tamping, BCM, DTS, BRM, Tower Wagons and complete track machine fleet upkeep." },
+        { title: "Depot Equipment", desc: "Wheel lathes, drop tables, presses, lifting jacks, bogie test rigs and complete depot machinery installation." },
+        { title: "ICBMRO & POH Contracts", desc: "Integrated Coach Body Maintenance, Repair, Overhaul, Periodic Overhaul and Mid-Life Rehabilitation programmes." },
+      ]}
+      capabilities={["RDSO vendor approvals","IRS specifications","ISO 9001/14001/45001","GeM & IREPS empanelled","PAN-India deployment","Skilled S&T crews","OHE specialists","Heavy logistics","Calibration labs","Spares warehousing","24x7 AMC support","DPR & survey teams"]}
+      whyUs={[
+        { title: "Deep Railway DNA", desc: "Decades of working with IR — we understand zones, divisions, formats, timelines and culture." },
+        { title: "Approved Supplier", desc: "RDSO listings, IRS compliance and proven vendor performance across multiple zones." },
+        { title: "Future-Ready", desc: "Active in KAWACH, PM Gati Shakti, Vande Bharat, smart stations and IoT-driven railway transformation." },
+      ]}
+    />
   );
 }

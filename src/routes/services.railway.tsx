@@ -1,9 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { Train } from "lucide-react";
 import railwayImg from "../assets/railway-services.jpg";
-import { Train, ChevronRight } from "lucide-react";
+import { DetailPage } from "../components/DetailPage";
 
 export const Route = createFileRoute("/services/railway")({
-  component: RailwayServicesPage,
+  component: Page,
   head: () => ({
     meta: [
       { title: "Railway Services — Jigisha Group" },
@@ -12,50 +13,50 @@ export const Route = createFileRoute("/services/railway")({
   }),
 });
 
-const services = [
-  { title: "Rolling Stock", desc: "Supply of wheels, axles, bearings, brake systems, couplers, interiors, HVAC, LED lighting, fire detection. Installation, retrofitting, testing & commissioning. ICBMRO contracts & AMC services." },
-  { title: "Production & Maintenance Unit Support", desc: "Fixtures, jigs, production tools, fabrication machinery. Depot equipment installation — wheel lathes, presses, turntables, drop tables. Maintenance platforms, pit lines, inspection bays." },
-  { title: "Railway Signaling & Telecom (S&T)", desc: "Trackside and station signaling systems. Interlocking systems, point machines, relays, telecom panels. Fiber optics, GSM-R, Wi-Fi network maintenance." },
-  { title: "OHE & Electrical Works", desc: "Design, supply, erection & commissioning of OHE structures. Masts, cantilevers, insulators, catenary and contact wires. OHE modification for electrification." },
-  { title: "Station Electrification & Smart Energy", desc: "All lighting, poles, panels, and controls. LED/VFD/smart sensor retrofits. Solar power integration and energy audits." },
-  { title: "KAWACH & Smart Railway", desc: "End-to-end KAWACH component supply and field integration. PM Gati Shakti infrastructure support. IoT, AI-based sensors, SCADA deployment." },
-  { title: "Track Machines & SPART", desc: "Parts, calibration & AMC for Tamping Machines, Ballast Regulators. Maintenance of Tower Wagons, OHE Track Machines. Hydraulics, engines, rail gear." },
-];
-
-function RailwayServicesPage() {
+function Page() {
   return (
-    <>
-      <section className="relative h-72 md:h-80 overflow-hidden">
-        <img src={railwayImg} alt="Railway Services" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-hero-gradient opacity-80" />
-        <div className="absolute inset-0 flex items-center justify-center text-center">
-          <div>
-            <Link to="/services" className="text-gold/80 text-xs font-semibold tracking-widest uppercase hover:text-gold">← All Services</Link>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-navy-foreground mt-2">Railway Services</h1>
-            <p className="mt-3 text-navy-foreground/70 max-w-lg mx-auto">Comprehensive solutions for Production Units, Maintenance Sheds, Divisions, and Zones</p>
-          </div>
-        </div>
-      </section>
-      <section className="py-20 bg-background">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {services.map(s => (
-              <div key={s.title} className="bg-card rounded-xl p-6 border border-border shadow-card">
-                <div className="flex items-center gap-3 mb-3">
-                  <Train className="w-5 h-5 text-gold" />
-                  <h3 className="font-semibold text-card-foreground">{s.title}</h3>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-12 text-center">
-            <Link to="/contact" className="inline-flex items-center gap-1 px-6 py-3 bg-gold text-gold-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity">
-              Request Railway Services Quote <ChevronRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-    </>
+    <DetailPage
+      category="services"
+      title="Railway Services"
+      tagline="End-to-end engineering, supply, and lifecycle services for India's largest rail network"
+      overview="Jigisha Group is a trusted partner to Indian Railways across Production Units, Maintenance Sheds, Divisions and Zones. From rolling stock components and signaling systems to KAWACH integration and OHE works, we deliver turnkey solutions backed by RDSO approvals, vendor codes, and decades of railway domain expertise."
+      heroImage={railwayImg}
+      Icon={Train}
+      stats={[
+        { value: "17", label: "Railway Zones Served" },
+        { value: "500K+", label: "Components Supplied" },
+        { value: "RDSO", label: "Approved Vendor" },
+        { value: "24x7", label: "AMC Support" },
+      ]}
+      offerings={[
+        { title: "Rolling Stock Solutions", desc: "Supply of wheels, axles, bearings, brake systems, couplers, coach interiors, HVAC, LED lighting, fire detection systems and complete pantry car equipment. Includes installation, retrofitting, testing & commissioning, ICBMRO contracts and full AMC services for LHB, ICF, Vande Bharat and EMU/MEMU rakes." },
+        { title: "Production & Maintenance Unit Support", desc: "Custom fixtures, jigs, production tools and fabrication machinery for ICF, RCF, MCF, BLW, CLW. Depot equipment supply and installation — wheel lathes, hydraulic presses, turntables, drop tables, bogie test rigs, maintenance platforms and inspection pit lines." },
+        { title: "Railway Signaling & Telecom (S&T)", desc: "Trackside and station signaling — interlocking systems, electronic point machines, relays, axle counters, signaling cables, telecom panels. Fiber optic backbone, GSM-R, Wi-Fi network roll-out, station data networks and SCADA integration." },
+        { title: "OHE & Electrical Works", desc: "Design, supply, erection and commissioning of 25kV OHE — masts, cantilevers, insulators, catenary and contact wires, droppers, section insulators. OHE modification, electrification of new corridors, traction sub-station equipment and grounding works." },
+        { title: "Station Electrification & Smart Energy", desc: "Complete station lighting, distribution panels, controls and BMS. LED retrofits, VFD installations, smart sensor automation, solar PV integration, energy audits and ECBC compliance for green station certification." },
+        { title: "KAWACH & Smart Railway", desc: "End-to-end KAWACH (TCAS) component supply, on-board and trackside equipment integration, RFID tag deployment and field commissioning. PM Gati Shakti infrastructure support, IoT sensors, AI-based predictive maintenance and SCADA deployment." },
+        { title: "Track Machines & SPART", desc: "OEM and aftermarket parts, calibration and AMC for Tamping Machines, Ballast Cleaning Machines, Dynamic Track Stabilizers, Ballast Regulators, Tower Wagons and OHE Track Machines. Hydraulics, diesel engines, transmissions and rail gear overhaul." },
+        { title: "ICBMRO & Lifecycle Contracts", desc: "Integrated Coach Body Maintenance, Repair and Overhaul. Mid-life rehabilitation, coach refurbishment, periodic overhaul (POH), shell repairs, painting, upholstery and complete IT-enabled depot management contracts." },
+      ]}
+      capabilities={[
+        "RDSO-approved vendor base",
+        "PAN-India deployment teams",
+        "Site survey & DPR preparation",
+        "ISO 9001 / 14001 / 45001 certified",
+        "GeM & IREPS empanelled",
+        "EOT crane & heavy logistics",
+        "Welding & fabrication shops",
+        "Calibration labs & test rigs",
+        "Fire & life safety compliance",
+        "Skilled signal technicians",
+        "OHE specialist crews",
+        "AMC & spares warehousing",
+      ]}
+      whyUs={[
+        { title: "Proven Track Record", desc: "Decades of execution across Indian Railways zones with consistent on-time, on-budget delivery and zero-defect commissioning." },
+        { title: "Compliance & Safety", desc: "RDSO approvals, IRS specifications, IRSEM standards and rigorous QA/QC processes integrated into every project." },
+        { title: "End-to-End Ownership", desc: "Single window for design, supply, erection, testing, commissioning and long-term AMC — no hand-off gaps." },
+      ]}
+    />
   );
 }

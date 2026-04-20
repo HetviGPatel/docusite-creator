@@ -1,35 +1,39 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { TrainTrack } from "lucide-react";
 import metroImg from "../assets/metro-rail.jpg";
-import { Building2, ChevronRight } from "lucide-react";
+import { DetailPage } from "../components/DetailPage";
 
 export const Route = createFileRoute("/industries/metro-rail")({
   component: Page,
-  head: () => ({ meta: [{ title: "Metro Rail — Jigisha Group" }, { name: "description", content: "End-to-end metro infrastructure — rolling stock, station systems, depot equipment, smart and green metro." }] }),
+  head: () => ({ meta: [{ title: "Metro Rail — Jigisha Group" }, { name: "description", content: "Turnkey metro infrastructure across India's growing urban transit corridors." }] }),
 });
-
-const items = ["Metro rolling stock components", "Station electrical & MEP", "Platform screen doors & CCTV", "Depot equipment & AMC", "Station furniture & accessibility", "Ticketing & access control", "Smart passenger info systems", "Green energy integration"];
 
 function Page() {
   return (
-    <>
-      <section className="relative h-72 md:h-80 overflow-hidden">
-        <img src={metroImg} alt="Metro Rail" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-hero-gradient opacity-80" />
-        <div className="absolute inset-0 flex items-center justify-center text-center">
-          <div>
-            <Link to="/industries" className="text-gold/80 text-xs font-semibold tracking-widest uppercase hover:text-gold">← All Industries</Link>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-navy-foreground mt-2">Metro Rail</h1>
-          </div>
-        </div>
-      </section>
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {items.map(s => (<div key={s} className="flex items-start gap-3 bg-card rounded-xl p-5 border border-border shadow-card"><Building2 className="w-5 h-5 text-gold mt-0.5 shrink-0" /><span className="text-muted-foreground">{s}</span></div>))}
-          </div>
-          <div className="mt-12 text-center"><Link to="/contact" className="inline-flex items-center gap-1 px-6 py-3 bg-gold text-gold-foreground font-semibold rounded-lg hover:opacity-90">Get in Touch <ChevronRight className="w-4 h-4" /></Link></div>
-        </div>
-      </section>
-    </>
+    <DetailPage
+      category="industries"
+      title="Metro Rail"
+      tagline="Powering urban mobility across India's expanding metro network"
+      overview="India's metro network is one of the world's fastest-growing urban transit programmes. Jigisha Group is an active partner to metro corporations — supplying rolling stock systems, third rail, CBTC sub-assemblies, AFC, PSDs, escalators and station MEP across operating and upcoming corridors."
+      heroImage={metroImg}
+      Icon={TrainTrack}
+      stats={[{ value: "12+", label: "Metro Cities" }, { value: "CBTC", label: "Ready" }, { value: "PSD", label: "Integrated" }, { value: "FM", label: "O&M" }]}
+      offerings={[
+        { title: "Rolling Stock Components", desc: "Doors, HVAC, interiors, seats, PIDS, CCTV, lighting and electrical sub-assemblies for metro trainsets." },
+        { title: "Station Electrical & MEP", desc: "LV/MV electricals, HVAC, plumbing, fire systems, BMS and complete station MEP packages." },
+        { title: "Platform Screen Doors & CCTV", desc: "Full-height and half-height PSDs, gap fillers, IP CCTV, NVR/VMS and integrated security systems." },
+        { title: "Depot Equipment & AMC", desc: "Bogie drop tables, wheel lathes, washing plants, lifting jacks and long-term depot O&M contracts." },
+        { title: "Station Furniture & Accessibility", desc: "Benches, signage, tactile paving, ramps and inclusive design accessories for universal access." },
+        { title: "Ticketing & Access Control", desc: "AFC gates, TVMs, NCMC card systems, QR ticketing and back-office clearing house integration." },
+        { title: "Smart Passenger Info Systems", desc: "Dynamic LED maps, LCD displays, public address, intercom and integrated PIDS platforms." },
+        { title: "Green Energy Integration", desc: "Solar rooftop, regenerative braking, energy-efficient lighting and sustainability retrofits for stations." },
+      ]}
+      capabilities={["EN 45545 fire-safe","IP65+ outdoor rated","CBTC sub-vendor","NCMC certified","BIM coordination","Tunnel logistics","Cleanroom assembly","Multi-city teams","FAT/SAT support","O&M training","Spares stocking","24x7 response"]}
+      whyUs={[
+        { title: "Metro-Specialized", desc: "Dedicated metro vertical with engineers experienced in CBTC, AFC, PSD and rolling stock." },
+        { title: "Multi-Corridor Active", desc: "Live execution and supply across Delhi, Mumbai, Bengaluru, Chennai, Hyderabad, Kochi and more." },
+        { title: "Lifecycle Partner", desc: "DPR support to commissioning to long-term O&M — invested through the asset's full life." },
+      ]}
+    />
   );
 }

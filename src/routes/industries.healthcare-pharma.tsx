@@ -1,18 +1,39 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { Heart, ChevronRight } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { Heart } from "lucide-react";
+import warehouseImg from "../assets/products-warehouse.jpg";
+import { DetailPage } from "../components/DetailPage";
 
 export const Route = createFileRoute("/industries/healthcare-pharma")({
   component: Page,
   head: () => ({ meta: [{ title: "Healthcare & Pharma — Jigisha Group" }] }),
 });
 
-const items = ["Pharmaceutical raw materials & APIs", "Medical devices & diagnostics", "Hospital procurement solutions", "Cold-chain logistics", "CDSCO & WHO-GMP compliance", "Lab & analytical equipment", "Surgical instruments & consumables", "Telemedicine infrastructure"];
-
 function Page() {
   return (
-    <>
-      <section className="bg-hero-gradient py-20"><div className="max-w-7xl mx-auto px-4 text-center"><Link to="/industries" className="text-gold/80 text-xs font-semibold tracking-widest uppercase hover:text-gold">← All Industries</Link><h1 className="text-4xl md:text-5xl font-extrabold text-navy-foreground mt-2">Healthcare & Pharma</h1></div></section>
-      <section className="py-20 bg-background"><div className="max-w-4xl mx-auto px-4"><div className="grid grid-cols-1 md:grid-cols-2 gap-4">{items.map(s => (<div key={s} className="flex items-start gap-3 bg-card rounded-xl p-5 border border-border shadow-card"><Heart className="w-5 h-5 text-gold mt-0.5 shrink-0" /><span className="text-muted-foreground">{s}</span></div>))}</div><div className="mt-12 text-center"><Link to="/contact" className="inline-flex items-center gap-1 px-6 py-3 bg-gold text-gold-foreground font-semibold rounded-lg hover:opacity-90">Get in Touch <ChevronRight className="w-4 h-4" /></Link></div></div></section>
-    </>
+    <DetailPage
+      category="industries"
+      title="Healthcare & Pharma"
+      tagline="APIs, medical devices, hospital procurement and pharma plant solutions"
+      overview="Jigisha Group serves hospitals, pharma manufacturers, diagnostic labs and government health programmes with APIs, medical devices, lab equipment, surgical consumables, cold-chain logistics and complete CDSCO/WHO-GMP compliant supply."
+      heroImage={warehouseImg}
+      Icon={Heart}
+      stats={[{ value: "CDSCO", label: "Licensed" }, { value: "WHO-GMP", label: "Sourced" }, { value: "Cold-Chain", label: "Validated" }, { value: "CGHS/ESIC", label: "Empanelled" }]}
+      offerings={[
+        { title: "Pharmaceutical Raw Materials & APIs", desc: "Active Pharmaceutical Ingredients, intermediates, excipients and packaging from WHO-GMP and US-FDA approved sources." },
+        { title: "Medical Devices & Diagnostics", desc: "Patient monitors, ventilators, ECG, ultrasound, dialysis, IVD reagents, POC devices and surgical equipment." },
+        { title: "Hospital Procurement Solutions", desc: "Single-window supply for tertiary care hospitals — equipment, consumables, services and rate-contract management." },
+        { title: "Cold-Chain Logistics", desc: "Validated 2-8°C and -20°C transport, ILRs, deep freezers and IoT-monitored vaccine and biologic distribution." },
+        { title: "CDSCO & WHO-GMP Compliance", desc: "Regulatory advisory, licensing support, technical dossiers and audit preparation for pharma plants." },
+        { title: "Lab & Analytical Equipment", desc: "HPLC, GC, UV-Vis, FTIR, dissolution apparatus, autoclaves, microscopes and full QC lab packages." },
+        { title: "Surgical Instruments & Consumables", desc: "Surgical disposables, sutures, instruments, IV sets, gloves, gauze and complete OT/ICU consumable supply." },
+        { title: "Telemedicine Infrastructure", desc: "Telemedicine carts, video conferencing, peripheral devices, PACS, HIS integration and remote-care platforms." },
+      ]}
+      capabilities={["CDSCO licenses","WHO-GMP sourcing","Cold-chain validated","Hazmat handling","CGHS/ESIC tenders","DGFT export licenses","Pharmacovigilance","Lab installation","Medical equipment AMC","Bio-medical engineering","Validation & calibration","Govt programme support"]}
+      whyUs={[
+        { title: "Healthcare Specialists", desc: "Trained teams that understand hospitals, pharma plants and regulatory rigor — not generalist suppliers." },
+        { title: "Compliance First", desc: "Every supply backed by CDSCO licensing, GMP sourcing, cold-chain validation and full documentation." },
+        { title: "Mission-Critical Reliability", desc: "Patient lives depend on uptime — our supply, AMC and emergency response is built for that pressure." },
+      ]}
+    />
   );
 }

@@ -1,31 +1,46 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { Heart, ChevronRight } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { Heart } from "lucide-react";
+import warehouseImg from "../assets/products-warehouse.jpg";
+import { DetailPage } from "../components/DetailPage";
 
 export const Route = createFileRoute("/products/agro-pharma")({
   component: Page,
   head: () => ({ meta: [{ title: "Agro & Pharma Products — Jigisha Group" }, { name: "description", content: "200K+ agro and pharma products — seeds, fertilizers, machinery, APIs, medical devices, lab equipment." }] }),
 });
 
-const items = ["Seeds & planting material", "Fertilizers & crop protection", "Agro machinery & implements", "APIs & excipients", "Medical devices & diagnostics", "Lab & analytical equipment", "Cold chain packaging", "Veterinary products"];
-
 function Page() {
   return (
-    <>
-      <section className="bg-hero-gradient py-20">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <Link to="/products" className="text-gold/80 text-xs font-semibold tracking-widest uppercase hover:text-gold">← All Products</Link>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-navy-foreground mt-2">Agro & Pharma</h1>
-          <p className="mt-2 text-navy-foreground/70">200K+ products</p>
-        </div>
-      </section>
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {items.map(s => (<div key={s} className="flex items-start gap-3 bg-card rounded-xl p-5 border border-border shadow-card"><Heart className="w-5 h-5 text-gold mt-0.5 shrink-0" /><span className="text-muted-foreground">{s}</span></div>))}
-          </div>
-          <div className="mt-12 text-center"><Link to="/contact" className="inline-flex items-center gap-1 px-6 py-3 bg-gold text-gold-foreground font-semibold rounded-lg hover:opacity-90">Request Catalogue <ChevronRight className="w-4 h-4" /></Link></div>
-        </div>
-      </section>
-    </>
+    <DetailPage
+      category="products"
+      title="Agro & Pharma"
+      tagline="200K+ products for farms, FPOs, hospitals, pharma plants and labs"
+      overview="A combined catalogue serving India's agriculture and healthcare value chains — from seeds, fertilizers and farm machinery to APIs, medical devices, lab equipment and hospital consumables. Jigisha Group is a single procurement partner for FPOs, agri-businesses, hospitals, pharma manufacturers and research labs."
+      heroImage={warehouseImg}
+      Icon={Heart}
+      stats={[
+        { value: "200K+", label: "SKUs" },
+        { value: "CDSCO", label: "Compliant" },
+        { value: "FCO/CIB", label: "Registered" },
+        { value: "WHO-GMP", label: "Sourced" },
+      ]}
+      offerings={[
+        { title: "Seeds & Planting Material", desc: "Hybrid seeds, certified seeds, vegetable seeds, fruit saplings, tissue-cultured plants, fodder seeds and complete planting kits sourced from approved producers." },
+        { title: "Fertilizers & Crop Protection", desc: "Urea, DAP, NPK, micronutrients, biofertilizers, organic manures, pesticides, herbicides, fungicides and bio-pesticides registered under FCO and CIB." },
+        { title: "Agro Machinery & Implements", desc: "Tractors, power tillers, rotavators, seed drills, sprayers, harvesters, threshers, drip-irrigation systems, sprinklers and complete farm mechanization equipment." },
+        { title: "APIs & Excipients", desc: "Active Pharmaceutical Ingredients, intermediates, excipients, packaging materials and pharma-grade chemicals sourced from WHO-GMP and US-FDA approved manufacturers." },
+        { title: "Medical Devices & Diagnostics", desc: "Patient monitors, ventilators, ECG machines, ultrasound, dialysis equipment, surgical instruments, diagnostic kits, IVD reagents and POC testing devices." },
+        { title: "Lab & Analytical Equipment", desc: "HPLC, GC, UV-Vis, FTIR, dissolution apparatus, autoclaves, incubators, microscopes, centrifuges, lab consumables and full QC lab packages." },
+        { title: "Cold Chain Packaging", desc: "Vaccine carriers, ice-lined refrigerators, deep freezers, cold boxes, qualified shipping containers and IoT-monitored cold-chain logistics for pharma." },
+        { title: "Veterinary Products", desc: "Veterinary medicines, vaccines, feed supplements, animal health products, surgical instruments and dairy farm equipment for livestock and poultry." },
+        { title: "Hospital Consumables", desc: "Surgical disposables, IV sets, syringes, gloves, masks, drapes, gauze, sutures, catheters and complete OT and ICU consumable packages." },
+        { title: "Drip & Micro-Irrigation", desc: "Drip lines, emitters, sprinklers, filters, fertigation units, controllers and complete PMKSY-compliant micro-irrigation packages with installation." },
+      ]}
+      capabilities={["CDSCO licenses","FCO/CIB registrations","WHO-GMP sourcing","Cold-chain logistics","Hazmat handling","Tender supply (CGHS, ESIC, Govt)","FPO procurement support","Veterinary specialists","Lab installation","Calibration & validation","Pharmacovigilance support","Training & demo"]}
+      whyUs={[
+        { title: "Two-in-One Catalogue", desc: "Seamlessly serve agri and healthcare procurement under a single trusted partner with sector-specialist teams." },
+        { title: "Compliance Strong", desc: "Full regulatory compliance — CDSCO, FCO, CIB, BIS, WHO-GMP — with documentation for every supply." },
+        { title: "Last-Mile Cold Chain", desc: "Validated cold-chain logistics ensuring vaccine, biologic and seed integrity to remote locations." },
+      ]}
+    />
   );
 }

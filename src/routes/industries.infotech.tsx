@@ -1,18 +1,39 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { Cpu, ChevronRight } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { Cpu } from "lucide-react";
+import warehouseImg from "../assets/products-warehouse.jpg";
+import { DetailPage } from "../components/DetailPage";
 
 export const Route = createFileRoute("/industries/infotech")({
   component: Page,
   head: () => ({ meta: [{ title: "Infotech & Digital — Jigisha Group" }] }),
 });
 
-const items = ["ERP & CRM implementation", "IoT & Industrial IoT solutions", "AI & machine learning", "Cybersecurity services", "Cloud migration & DevOps", "Custom software development", "Digital twins & simulation", "Industrial automation & SCADA"];
-
 function Page() {
   return (
-    <>
-      <section className="bg-hero-gradient py-20"><div className="max-w-7xl mx-auto px-4 text-center"><Link to="/industries" className="text-gold/80 text-xs font-semibold tracking-widest uppercase hover:text-gold">← All Industries</Link><h1 className="text-4xl md:text-5xl font-extrabold text-navy-foreground mt-2">Infotech & Digital</h1></div></section>
-      <section className="py-20 bg-background"><div className="max-w-4xl mx-auto px-4"><div className="grid grid-cols-1 md:grid-cols-2 gap-4">{items.map(s => (<div key={s} className="flex items-start gap-3 bg-card rounded-xl p-5 border border-border shadow-card"><Cpu className="w-5 h-5 text-gold mt-0.5 shrink-0" /><span className="text-muted-foreground">{s}</span></div>))}</div><div className="mt-12 text-center"><Link to="/contact" className="inline-flex items-center gap-1 px-6 py-3 bg-gold text-gold-foreground font-semibold rounded-lg hover:opacity-90">Get in Touch <ChevronRight className="w-4 h-4" /></Link></div></div></section>
-    </>
+    <DetailPage
+      category="industries"
+      title="Infotech & Digital"
+      tagline="ERP, IoT, AI, cybersecurity and Industry 4.0 for digital transformation"
+      overview="Jigisha Group's infotech vertical delivers enterprise software, industrial IoT, AI solutions, cloud, cybersecurity, custom development and SCADA integration — bridging operational technology and information technology across factories, infrastructure and government."
+      heroImage={warehouseImg}
+      Icon={Cpu}
+      stats={[{ value: "ISO 27001", label: "Certified" }, { value: "MeitY", label: "Empanelled" }, { value: "Cloud", label: "AWS/Azure" }, { value: "OT/IT", label: "Convergence" }]}
+      offerings={[
+        { title: "ERP & CRM Implementation", desc: "SAP, Oracle, Microsoft Dynamics, Odoo, Salesforce — implementation, customization, integration and AMS support." },
+        { title: "IoT & Industrial IoT", desc: "Sensor networks, edge gateways, MQTT/OPC-UA connectivity, IoT platforms and IIoT-driven OEE and predictive maintenance." },
+        { title: "AI & Machine Learning", desc: "Computer vision, predictive analytics, NLP, generative AI, LLM-based applications and ML-Ops pipelines." },
+        { title: "Cybersecurity Services", desc: "VAPT, SOC, SIEM, IT/OT security, ISO 27001 advisory, DPDP compliance and incident response." },
+        { title: "Cloud Migration & DevOps", desc: "AWS/Azure/GCP migration, containerization, Kubernetes, CI/CD, FinOps and cloud-native re-architecture." },
+        { title: "Custom Software Development", desc: "Web, mobile, microservices, APIs, low-code platforms and enterprise application engineering." },
+        { title: "Digital Twins & Simulation", desc: "Asset and process digital twins for plants, infrastructure and rolling stock with real-time data binding." },
+        { title: "Industrial Automation & SCADA", desc: "PLC, DCS, SCADA, HMI, MES integration and Industry 4.0 connectivity bridging OT and IT layers." },
+      ]}
+      capabilities={["ISO 27001 / 9001","MeitY empanelment","CMMI mature","AWS/Azure/GCP partners","DevOps & SRE teams","Data engineering","ML-Ops","OT cybersecurity","DPDP compliance","Agile delivery","24x7 NOC/SOC","Multi-vertical experience"]}
+      whyUs={[
+        { title: "OT + IT Native", desc: "We speak both factory floor and enterprise stack — rare convergence expertise." },
+        { title: "Outcome-Driven", desc: "Engagements measured on business outcomes — OEE lift, downtime reduction, revenue growth." },
+        { title: "Secure by Design", desc: "Cybersecurity baked into every solution, not bolted on — DPDP and ISO 27001 aligned." },
+      ]}
+    />
   );
 }
