@@ -1,54 +1,49 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { Briefcase, ChevronRight } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { Building2 } from "lucide-react";
+import officeImg from "../assets/about-office.jpg";
+import { DetailPage } from "../components/DetailPage";
 
 export const Route = createFileRoute("/services/commercial")({
-  component: CommercialServicesPage,
+  component: Page,
   head: () => ({
     meta: [
-      { title: "Commercial Services — Jigisha Group" },
-      { name: "description", content: "Facility management, office fit-outs, security services, housekeeping, IT and communication infrastructure." },
+      { title: "Commercial & Institutional Services — Jigisha Group" },
+      { name: "description", content: "Interior fit-outs, MEP, facility management, smart building automation and procurement for offices, campuses and institutions." },
     ],
   }),
 });
 
-const items = [
-  "Facility management for corporate offices & industrial campuses",
-  "Office fit-outs, furnishing & interior works",
-  "Security services, housekeeping & campus management",
-  "IT and communication infrastructure",
-  "Corporate event management and hospitality",
-  "Fleet management and transportation services",
-  "Catering and cafeteria management",
-  "Energy management and green building consulting",
-];
-
-function CommercialServicesPage() {
+function Page() {
   return (
-    <>
-      <section className="bg-hero-gradient py-20">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <Link to="/services" className="text-gold/80 text-xs font-semibold tracking-widest uppercase hover:text-gold">← All Services</Link>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-navy-foreground mt-2">Commercial Services</h1>
-          <p className="mt-3 text-navy-foreground/70 max-w-lg mx-auto">End-to-end commercial facility and infrastructure solutions</p>
-        </div>
-      </section>
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4">
-          <ul className="space-y-4">
-            {items.map(s => (
-              <li key={s} className="flex items-start gap-4 bg-card rounded-xl p-5 border border-border shadow-card">
-                <Briefcase className="w-5 h-5 text-gold mt-0.5 shrink-0" />
-                <span className="text-muted-foreground">{s}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-12 text-center">
-            <Link to="/contact" className="inline-flex items-center gap-1 px-6 py-3 bg-gold text-gold-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity">
-              Get Quote <ChevronRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-    </>
+    <DetailPage
+      category="services"
+      title="Commercial Services"
+      tagline="Fit-outs, MEP, automation and FM for offices, campuses and institutions"
+      overview="From corporate workplaces and IT parks to educational campuses, hospitals and government complexes, Jigisha Group delivers turnkey interior fit-outs, MEP services, smart-building automation, integrated facility management and institutional procurement — all under one accountable partner."
+      heroImage={officeImg}
+      Icon={Building2}
+      stats={[
+        { value: "10M+", label: "Sq.Ft Delivered" },
+        { value: "IGBC", label: "Green Certified" },
+        { value: "BMS", label: "Smart Buildings" },
+        { value: "FM", label: "PAN-India" },
+      ]}
+      offerings={[
+        { title: "Interior Fit-out & Workplace", desc: "Design-build interior fit-outs for corporates, IT parks, retail and hospitality — civil, partitions, ceilings, flooring, joinery, loose furniture, branding and complete handover with snag-free quality." },
+        { title: "MEP — Electrical, HVAC, Plumbing, Fire", desc: "Complete MEP design and execution including LV/MV electricals, HVAC (VRF/chilled water), plumbing, fire detection and suppression, public health engineering and integration with BMS." },
+        { title: "Smart Building & Automation", desc: "BMS, lighting controls, access control, CCTV, IBMS dashboards, energy meters, occupancy sensors, IoT integrations and command-center setups for intelligent facilities." },
+        { title: "Integrated Facility Management", desc: "Hard FM (HVAC, electrical, plumbing, civil), soft FM (housekeeping, pantry, landscaping), security, helpdesk and CAFM-driven asset management for offices and campuses." },
+        { title: "Institutional Procurement", desc: "Furniture, IT hardware, lab equipment, audio-visual systems, signage and consumables supply for educational institutions, hospitals, government offices and PSUs via GeM and direct contracts." },
+        { title: "Energy & Sustainability", desc: "IGBC/LEED green building advisory, energy audits, solar rooftop integration, water recycling, waste segregation and ESG reporting support." },
+        { title: "AV, IT & Security Systems", desc: "Video conferencing, digital signage, structured cabling, Wi-Fi, server rooms, access control, CCTV, intrusion alarm and integrated command centers." },
+        { title: "Repair & Renovation", desc: "Refurbishment of existing offices, retail outlets, bank branches and institutional spaces with minimal business disruption and phased execution." },
+      ]}
+      capabilities={["Design-build delivery","BIM coordination","IGBC/LEED advisors","MEP project managers","Licensed electricians","HVAC technicians","Fire-system installers","BMS/IBMS integrators","AV/IT specialists","FM software (CAFM)","Trained housekeeping","Security manpower"]}
+      whyUs={[
+        { title: "Single Accountability", desc: "Architecture, MEP, automation, FM — under one contract, one PM, one SLA." },
+        { title: "Green & Smart by Default", desc: "Sustainability, energy efficiency and smart building tech baked into every project, not bolted on." },
+        { title: "PAN-India Reach", desc: "Self-performing teams across metros and tier-2 cities for consistent delivery and rapid FM response." },
+      ]}
+    />
   );
 }
