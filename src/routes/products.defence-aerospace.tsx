@@ -1,36 +1,44 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { Shield } from "lucide-react";
 import defenceImg from "../assets/defence-tech.jpg";
-import { Shield, ChevronRight } from "lucide-react";
+import { DetailPage } from "../components/DetailPage";
 
 export const Route = createFileRoute("/products/defence-aerospace")({
   component: Page,
   head: () => ({ meta: [{ title: "Defence & Aerospace Products — Jigisha Group" }, { name: "description", content: "150K+ defence-grade products — precision parts, electronic sub-assemblies, strategic materials." }] }),
 });
 
-const items = ["Precision machined components", "Electronic sub-assemblies", "Strategic & specialty materials", "Military-grade fasteners & hardware", "Aerospace structural components", "Avionics parts & accessories", "Body armour & protection systems", "Communication & surveillance equipment"];
-
 function Page() {
   return (
-    <>
-      <section className="relative h-72 md:h-80 overflow-hidden">
-        <img src={defenceImg} alt="Defence & Aerospace" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-hero-gradient opacity-80" />
-        <div className="absolute inset-0 flex items-center justify-center text-center">
-          <div>
-            <Link to="/products" className="text-gold/80 text-xs font-semibold tracking-widest uppercase hover:text-gold">← All Products</Link>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-navy-foreground mt-2">Defence & Aerospace</h1>
-            <p className="mt-2 text-navy-foreground/70">150K+ products</p>
-          </div>
-        </div>
-      </section>
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {items.map(s => (<div key={s} className="flex items-start gap-3 bg-card rounded-xl p-5 border border-border shadow-card"><Shield className="w-5 h-5 text-gold mt-0.5 shrink-0" /><span className="text-muted-foreground">{s}</span></div>))}
-          </div>
-          <div className="mt-12 text-center"><Link to="/contact" className="inline-flex items-center gap-1 px-6 py-3 bg-gold text-gold-foreground font-semibold rounded-lg hover:opacity-90">Request Catalogue <ChevronRight className="w-4 h-4" /></Link></div>
-        </div>
-      </section>
-    </>
+    <DetailPage
+      category="products"
+      title="Defence & Aerospace"
+      tagline="150K+ defence-grade products — precision parts, electronics, strategic materials"
+      overview="Jigisha Group supplies a wide range of defence-grade and aerospace-qualified products to Indian Armed Forces, DRDO labs, DPSUs (HAL, BEL, BEML, BDL, MIDHANI), Ordnance Factories and tier-1 OEMs. All items are produced under AS9100, DGAQA and DGQA frameworks with full traceability and compliance documentation."
+      heroImage={defenceImg}
+      Icon={Shield}
+      stats={[
+        { value: "150K+", label: "SKUs" },
+        { value: "AS9100", label: "QMS" },
+        { value: "DGQA", label: "Approved" },
+        { value: "MIL-STD", label: "Compliant" },
+      ]}
+      offerings={[
+        { title: "Precision Machined Components", desc: "5-axis CNC machined parts, turn-mill components, micro-machined parts and complex sub-assemblies in aluminium, titanium, Inconel, stainless steels and special alloys." },
+        { title: "Electronic Sub-Assemblies", desc: "PCB assemblies, ruggedized enclosures, cable harnesses, looms, connectors, junction boxes and integrated electronic LRUs for radar, EW, sonar and avionics applications." },
+        { title: "Strategic & Specialty Materials", desc: "Maraging steels, titanium alloys, Inconel, super-alloys, composite materials, ballistic fabrics and specialty consumables sourced from approved mills with full mill TC." },
+        { title: "Military Fasteners & Hardware", desc: "MIL-STD bolts, screws, rivets, inserts, captive fasteners, lockbolts and aerospace-grade fastening hardware in compliance with NAS, NSA and MIL specifications." },
+        { title: "Aerospace Structural Components", desc: "Sheet metal sub-assemblies, machined frames, ribs, brackets, fittings and structural fasteners for fixed-wing, rotary-wing and UAV airframes." },
+        { title: "Avionics Parts & Accessories", desc: "Avionics housings, mounting trays, cooling assemblies, EMI/RFI shielding, vibration isolators and ground-support accessories for cockpit and bay equipment." },
+        { title: "Body Armour & Protection", desc: "Bullet-resistant plates, ballistic helmets, soft body armour, vehicle armour panels, armoured glass and personal protective gear meeting NIJ and BIS standards." },
+        { title: "Communication & Surveillance Equipment", desc: "Tactical radios, antennas, surveillance cameras, thermal imagers, night-vision devices, optical sights and ruggedized communication accessories." },
+      ]}
+      capabilities={["AS9100D certified","DGAQA / DGQA / CEMILAC links","ITAR-aware processes","NDT (UT/RT/MPI/DPI)","Cleanroom packaging","FAI per AS9102","Conflict minerals compliance","Full material traceability","Security cleared workforce","Confidential vendor lists","Lifetime spares programmes","Offset partnership ready"]}
+      whyUs={[
+        { title: "Mission-Critical Quality", desc: "Every part backed by FAI, mill TC and complete batch traceability — built for life-safety and combat applications." },
+        { title: "Trusted Defence Supplier", desc: "Long-running supply relationships with DPSUs and the Indian Armed Forces backed by stringent vetting." },
+        { title: "Indigenization Partner", desc: "Active SRIJAN portal participant — converting imports to indigenous supply with proven case studies." },
+      ]}
+    />
   );
 }

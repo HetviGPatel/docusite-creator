@@ -1,36 +1,46 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { Leaf } from "lucide-react";
 import greenImg from "../assets/green-energy.jpg";
-import { Leaf, ChevronRight } from "lucide-react";
+import { DetailPage } from "../components/DetailPage";
 
 export const Route = createFileRoute("/products/green-energy")({
   component: Page,
   head: () => ({ meta: [{ title: "Green Energy Products — Jigisha Group" }, { name: "description", content: "100K+ green energy products — solar panels, bio-CNG, energy monitoring, waste-to-energy." }] }),
 });
 
-const items = ["Solar panels & modules", "Solar pumps & controllers", "Bio-CNG plant equipment", "Energy monitoring systems", "Waste-to-energy systems", "LED energy-efficient lighting", "Battery storage systems", "Smart meters & grid solutions"];
-
 function Page() {
   return (
-    <>
-      <section className="relative h-72 md:h-80 overflow-hidden">
-        <img src={greenImg} alt="Green Energy" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-hero-gradient opacity-80" />
-        <div className="absolute inset-0 flex items-center justify-center text-center">
-          <div>
-            <Link to="/products" className="text-gold/80 text-xs font-semibold tracking-widest uppercase hover:text-gold">← All Products</Link>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-navy-foreground mt-2">Green Energy</h1>
-            <p className="mt-2 text-navy-foreground/70">100K+ products</p>
-          </div>
-        </div>
-      </section>
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {items.map(s => (<div key={s} className="flex items-start gap-3 bg-card rounded-xl p-5 border border-border shadow-card"><Leaf className="w-5 h-5 text-gold mt-0.5 shrink-0" /><span className="text-muted-foreground">{s}</span></div>))}
-          </div>
-          <div className="mt-12 text-center"><Link to="/contact" className="inline-flex items-center gap-1 px-6 py-3 bg-gold text-gold-foreground font-semibold rounded-lg hover:opacity-90">Request Catalogue <ChevronRight className="w-4 h-4" /></Link></div>
-        </div>
-      </section>
-    </>
+    <DetailPage
+      category="products"
+      title="Green Energy"
+      tagline="100K+ products — solar, bio-energy, storage, smart grid and energy efficiency"
+      overview="Aligned with India's net-zero and renewable energy mission, Jigisha Group supplies a complete catalogue of green energy products — solar PV systems, bio-CNG plant equipment, energy storage, smart metering, EV charging and waste-to-energy systems for industrial, commercial, agricultural and utility customers."
+      heroImage={greenImg}
+      Icon={Leaf}
+      stats={[
+        { value: "100K+", label: "SKUs" },
+        { value: "MNRE", label: "Approved" },
+        { value: "ALMM", label: "Listed Modules" },
+        { value: "BEE", label: "Star Rated" },
+      ]}
+      offerings={[
+        { title: "Solar Panels & Modules", desc: "Mono-PERC, bifacial, TOPCon and HJT solar modules from ALMM-listed manufacturers ranging from 400W to 700W for rooftop, ground-mount and utility-scale projects." },
+        { title: "Solar Pumps & Controllers", desc: "AC and DC solar water pumps under PM-KUSUM scheme — surface, submersible and centrifugal pumps with VFD controllers, mounting structures and complete BoS." },
+        { title: "Bio-CNG Plant Equipment", desc: "Anaerobic digesters, gas holders, biogas upgradation skids, compressors, scrubbers, dispensing units and complete bio-CNG package plants for organic waste-to-fuel." },
+        { title: "Energy Monitoring Systems", desc: "Smart energy meters, power quality analyzers, IoT-based energy dashboards, sub-metering, demand controllers and ISO 50001 EnMS-aligned platforms." },
+        { title: "Waste-to-Energy Systems", desc: "Municipal solid waste incinerators, biomass gasifiers, RDF systems, ORC turbines and complete waste-to-power plant packages with emission control." },
+        { title: "LED Energy-Efficient Lighting", desc: "BEE 5-star LED lights, smart streetlights, IoT-controlled industrial lighting and solar hybrid luminaires that cut lighting energy by up to 70%." },
+        { title: "Battery Storage Systems", desc: "Lithium-ion battery packs, BMS, container BESS, residential storage, commercial storage and grid-scale energy storage with integration services." },
+        { title: "Smart Meters & Grid Solutions", desc: "Single-phase, three-phase and CT-operated smart meters, AMI head-end systems, DCUs, LV monitors and prepaid metering for utilities and DISCOMs." },
+        { title: "EV Charging Infrastructure", desc: "AC slow chargers, DC fast chargers, ultra-fast chargers, OCPP back-end software, billing platforms and complete EV charging station packages." },
+        { title: "Solar BoS & Mounting", desc: "Module mounting structures, trackers, junction boxes, DC cables, fuses, surge protectors, lightning arresters and complete balance-of-system kits." },
+      ]}
+      capabilities={["MNRE approved equipment","ALMM-listed modules","BIS/IEC certified","Site survey & DPR","DISCOM net-metering liaison","CEIG approvals","O&M services","Performance monitoring","PM-KUSUM specialist","CFA documentation","CAPEX & RESCO models","ESG reporting"]}
+      whyUs={[
+        { title: "End-to-End Green Solutions", desc: "From product supply to design, installation and O&M — complete renewable energy lifecycle." },
+        { title: "Scheme Specialists", desc: "Deep expertise in PM-KUSUM, PM Surya Ghar, MNRE schemes and net-metering processes nationwide." },
+        { title: "Quality & Compliance", desc: "Only MNRE/ALMM-approved equipment with proper warranties and performance guarantees." },
+      ]}
+    />
   );
 }

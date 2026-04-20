@@ -1,43 +1,46 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { Train } from "lucide-react";
 import railwayImg from "../assets/railway-services.jpg";
-import { Train, ChevronRight } from "lucide-react";
+import { DetailPage } from "../components/DetailPage";
 
 export const Route = createFileRoute("/products/railway-components")({
   component: Page,
   head: () => ({ meta: [{ title: "Railway Components — Jigisha Group" }, { name: "description", content: "500K+ railway components — rolling stock parts, signaling equipment, OHE structures, KAWACH systems." }] }),
 });
 
-const items = ["Wheels, axles & bearings", "Brake systems & couplers", "Coach interiors & furnishing", "HVAC & LED lighting systems", "Fire detection & suppression", "Signaling equipment & relays", "Point machines & interlocking", "OHE masts, cantilevers & insulators", "Catenary & contact wires", "KAWACH components", "Track machine parts & spares", "Station infrastructure materials"];
-
 function Page() {
   return (
-    <>
-      <section className="relative h-72 md:h-80 overflow-hidden">
-        <img src={railwayImg} alt="Railway Components" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-hero-gradient opacity-80" />
-        <div className="absolute inset-0 flex items-center justify-center text-center">
-          <div>
-            <Link to="/products" className="text-gold/80 text-xs font-semibold tracking-widest uppercase hover:text-gold">← All Products</Link>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-navy-foreground mt-2">Railway Components</h1>
-            <p className="mt-2 text-navy-foreground/70">500K+ products for Indian Railways</p>
-          </div>
-        </div>
-      </section>
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {items.map(s => (
-              <div key={s} className="flex items-start gap-3 bg-card rounded-xl p-5 border border-border shadow-card">
-                <Train className="w-5 h-5 text-gold mt-0.5 shrink-0" />
-                <span className="text-muted-foreground">{s}</span>
-              </div>
-            ))}
-          </div>
-          <div className="mt-12 text-center">
-            <Link to="/contact" className="inline-flex items-center gap-1 px-6 py-3 bg-gold text-gold-foreground font-semibold rounded-lg hover:opacity-90">Request Catalogue <ChevronRight className="w-4 h-4" /></Link>
-          </div>
-        </div>
-      </section>
-    </>
+    <DetailPage
+      category="products"
+      title="Railway Components"
+      tagline="500K+ products for Indian Railways — rolling stock, S&T, OHE, KAWACH, depot equipment"
+      overview="Jigisha Group is an RDSO-approved supplier offering one of India's widest catalogues of railway components — covering rolling stock parts, signaling equipment, OHE infrastructure, KAWACH systems, depot machinery, station materials and complete spares packages for Production Units and Workshops."
+      heroImage={railwayImg}
+      Icon={Train}
+      stats={[
+        { value: "500K+", label: "SKUs Catalogued" },
+        { value: "RDSO", label: "Approved Items" },
+        { value: "PAN-India", label: "Warehousing" },
+        { value: "GeM/IREPS", label: "Empanelled" },
+      ]}
+      offerings={[
+        { title: "Rolling Stock Components", desc: "Wheels, axles, wheelsets, roller bearings, brake blocks, brake cylinders, distributors, couplers, draft gear, springs, draw gear and complete bogie sub-assemblies for ICF, LHB, Vande Bharat and freight stock." },
+        { title: "Coach Interiors & Furnishing", desc: "FRP/GRP panels, vinyl flooring, seats, berths, modular toilets, bio-tanks, gangways, doors, windows, panels, vestibules and complete interior fit-out kits to RDSO specs." },
+        { title: "HVAC, Lighting & Electricals", desc: "Roof-mounted package units, split AC, evaporators, LED coach lights, distribution boards, batteries, alternators, dynamos, fans, mobile-charging sockets and pantry equipment." },
+        { title: "Fire Detection & Suppression", desc: "Smoke detectors, heat sensors, control panels, hooters, fire extinguishers, water-mist systems and complete coach-grade fire safety kits compliant with RDSO standards." },
+        { title: "Signaling Equipment", desc: "Electronic interlocking sub-assemblies, point machines, relays, axle counters, signaling cables, line wires, power supply units, surge protectors and station signaling kits." },
+        { title: "OHE Materials & Hardware", desc: "Masts, cantilevers, droppers, jumpers, insulators, section insulators, contact wire, catenary wire, anti-creep and tensioning equipment for 25kV electrification." },
+        { title: "KAWACH Components", desc: "On-board and trackside KAWACH (TCAS) sub-assemblies, RFID tags, station-side equipment, antennas, cables and integration kits for safety system roll-out." },
+        { title: "Track Machine Spares", desc: "Spares for Tamping Machines, BCM, DTS, BRM, Tower Wagons — hydraulics, pneumatics, engines, transmissions, sensors and tooling consumables." },
+        { title: "Depot & Workshop Equipment", desc: "Wheel lathes, axle journal lathes, bogie test rigs, drop tables, wheel presses, lifting jacks, hydraulic presses, EOT cranes and inspection equipment." },
+        { title: "Station Infrastructure", desc: "Platform shelters, benches, signage, modular toilets, water booths, RO units, escalators, lifts, PA systems, CCTV and passenger amenities." },
+      ]}
+      capabilities={["RDSO vendor approvals","IRS specification compliant","ISO 9001 / 14001 / 45001","NABL-accredited testing","Type & routine test reports","BIS / IS / EN materials","PAN-India warehouses","GeM & IREPS supply","Custom kitting & packaging","Reverse logistics","OEM tie-ups","Just-in-time delivery"]}
+      whyUs={[
+        { title: "Vast Catalogue", desc: "500K+ SKUs in one place — single PO for diverse railway needs across coaches, signaling, OHE and infrastructure." },
+        { title: "Approved & Compliant", desc: "RDSO-listed items, IRS-compliant materials, complete documentation and traceability for every supply." },
+        { title: "Reliable Logistics", desc: "Strategically located warehouses ensure rapid dispatch to railway zones, depots and workshops nationwide." },
+      ]}
+    />
   );
 }
