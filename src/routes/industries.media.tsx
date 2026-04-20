@@ -1,18 +1,39 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { Radio, ChevronRight } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { Radio } from "lucide-react";
+import officeImg from "../assets/about-office.jpg";
+import { DetailPage } from "../components/DetailPage";
 
 export const Route = createFileRoute("/industries/media")({
   component: Page,
   head: () => ({ meta: [{ title: "Media & Communications — Jigisha Group" }] }),
 });
 
-const items = ["Integrated marketing campaigns", "Digital media production", "Corporate events management", "In-News platform & publishing", "Corporate PR & communications", "Industrial magazine publication", "Brand identity & design", "Social media management"];
-
 function Page() {
   return (
-    <>
-      <section className="bg-hero-gradient py-20"><div className="max-w-7xl mx-auto px-4 text-center"><Link to="/industries" className="text-gold/80 text-xs font-semibold tracking-widest uppercase hover:text-gold">← All Industries</Link><h1 className="text-4xl md:text-5xl font-extrabold text-navy-foreground mt-2">Media & Communications</h1></div></section>
-      <section className="py-20 bg-background"><div className="max-w-4xl mx-auto px-4"><div className="grid grid-cols-1 md:grid-cols-2 gap-4">{items.map(s => (<div key={s} className="flex items-start gap-3 bg-card rounded-xl p-5 border border-border shadow-card"><Radio className="w-5 h-5 text-gold mt-0.5 shrink-0" /><span className="text-muted-foreground">{s}</span></div>))}</div><div className="mt-12 text-center"><Link to="/contact" className="inline-flex items-center gap-1 px-6 py-3 bg-gold text-gold-foreground font-semibold rounded-lg hover:opacity-90">Get in Touch <ChevronRight className="w-4 h-4" /></Link></div></div></section>
-    </>
+    <DetailPage
+      category="industries"
+      title="Media & Communications"
+      tagline="Integrated marketing, digital media, PR, events and industrial publishing"
+      overview="Jigisha Group's media vertical delivers integrated marketing, digital production, PR, events, industrial publishing and brand strategy — including the In-News platform and an industry-focused magazine that connects manufacturers, infrastructure players and government stakeholders."
+      heroImage={officeImg}
+      Icon={Radio}
+      stats={[{ value: "B2B", label: "Specialists" }, { value: "PR", label: "PAN-India" }, { value: "In-News", label: "Platform" }, { value: "Industrial", label: "Magazine" }]}
+      offerings={[
+        { title: "Integrated Marketing Campaigns", desc: "Strategy, creative, paid media, ABM and full-funnel B2B marketing for industrial and infrastructure brands." },
+        { title: "Digital Media Production", desc: "Corporate films, factory documentaries, product videos, animations, drone shoots and explainer content." },
+        { title: "Corporate Events Management", desc: "Conferences, exhibitions, factory openings, customer events, road shows and hybrid event production." },
+        { title: "In-News Platform & Publishing", desc: "Industry news platform connecting manufacturers, government, buyers and policy stakeholders." },
+        { title: "Corporate PR & Communications", desc: "Media relations, press releases, crisis communication, executive thought leadership and CXO branding." },
+        { title: "Industrial Magazine Publication", desc: "Sector-focused print and digital magazine covering railways, defence, manufacturing and infrastructure." },
+        { title: "Brand Identity & Design", desc: "Corporate identity, brand books, packaging, signage, exhibition stalls and creative design services." },
+        { title: "Social Media Management", desc: "LinkedIn-led B2B social, content calendars, community management, influencer marketing and analytics." },
+      ]}
+      capabilities={["B2B marketing experts","Industrial sector knowledge","In-house studio","Drone & 4K production","PR networks","Digital ad platforms","SEO & content","CRM & marketing automation","Event production","Print & digital publishing","Translation services","Analytics & ROI reporting"]}
+      whyUs={[
+        { title: "Industrial DNA", desc: "We understand factories, projects, government — content that resonates with B2B buyers." },
+        { title: "Owned Media", desc: "In-News and industrial magazine give clients sustained reach to qualified industry audiences." },
+        { title: "Full-Stack Agency", desc: "Strategy to creative to media to PR to events — integrated under one accountable team." },
+      ]}
+    />
   );
 }

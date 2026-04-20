@@ -1,35 +1,39 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { Shield } from "lucide-react";
 import defenceImg from "../assets/defence-tech.jpg";
-import { Shield, ChevronRight } from "lucide-react";
+import { DetailPage } from "../components/DetailPage";
 
 export const Route = createFileRoute("/industries/aerospace-defence")({
   component: Page,
-  head: () => ({ meta: [{ title: "Aerospace & Defence — Jigisha Group" }, { name: "description", content: "Defence-grade components for Armed Forces, DRDO, HAL, BEL. Aligned with Make in India & Atmanirbhar Bharat." }] }),
+  head: () => ({ meta: [{ title: "Aerospace & Defence — Jigisha Group" }, { name: "description", content: "Defence-grade engineering, MRO and indigenization for Armed Forces, DRDO, HAL, BEL." }] }),
 });
-
-const items = ["Defence-grade components supply", "DRDO, HAL, BEL, BEML partnerships", "Aerospace hardware manufacturing", "Electronic sub-assemblies", "AS9100 quality compliance", "Make in India & Atmanirbhar Bharat", "Defence Indigenisation programs", "Ordnance Factory supplies"];
 
 function Page() {
   return (
-    <>
-      <section className="relative h-72 md:h-80 overflow-hidden">
-        <img src={defenceImg} alt="Aerospace & Defence" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-hero-gradient opacity-80" />
-        <div className="absolute inset-0 flex items-center justify-center text-center">
-          <div>
-            <Link to="/industries" className="text-gold/80 text-xs font-semibold tracking-widest uppercase hover:text-gold">← All Industries</Link>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-navy-foreground mt-2">Aerospace & Defence</h1>
-          </div>
-        </div>
-      </section>
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {items.map(s => (<div key={s} className="flex items-start gap-3 bg-card rounded-xl p-5 border border-border shadow-card"><Shield className="w-5 h-5 text-gold mt-0.5 shrink-0" /><span className="text-muted-foreground">{s}</span></div>))}
-          </div>
-          <div className="mt-12 text-center"><Link to="/contact" className="inline-flex items-center gap-1 px-6 py-3 bg-gold text-gold-foreground font-semibold rounded-lg hover:opacity-90">Contact Defence Division <ChevronRight className="w-4 h-4" /></Link></div>
-        </div>
-      </section>
-    </>
+    <DetailPage
+      category="industries"
+      title="Aerospace & Defence"
+      tagline="Make-in-India partner to Armed Forces, DRDO, DPSUs and global OEMs"
+      overview="Jigisha Group's aerospace & defence vertical supports India's strategic autonomy through indigenization, precision manufacturing, MRO services and supply of defence-grade components — aligned with Make in India, Atmanirbhar Bharat and SRIJAN portal initiatives."
+      heroImage={defenceImg}
+      Icon={Shield}
+      stats={[{ value: "AS9100", label: "Certified" }, { value: "DGQA", label: "Approved" }, { value: "MoD", label: "Empanelled" }, { value: "SRIJAN", label: "Active" }]}
+      offerings={[
+        { title: "Defence-Grade Components", desc: "Precision parts, electronic sub-assemblies, fasteners, specialty materials for armoured vehicles, aircraft, naval platforms and missile programmes." },
+        { title: "DRDO, HAL, BEL, BEML Partnerships", desc: "Vendor relationships across DPSUs for sustained supply, indigenization and engineering support." },
+        { title: "Aerospace Hardware Manufacturing", desc: "AS9100-compliant machined and sheet-metal aerospace parts for fixed-wing, rotary-wing and UAV platforms." },
+        { title: "Electronic Sub-Assemblies", desc: "PCB assemblies, harnesses, ruggedized enclosures for radar, EW, sonar and communication systems." },
+        { title: "AS9100 Quality Compliance", desc: "Full aerospace QMS, FAI per AS9102, traceability, conflict-minerals compliance and ITAR-aware processes." },
+        { title: "Make in India & Atmanirbhar Bharat", desc: "SRIJAN portal participation, import-substitution success stories and offset-partnership readiness." },
+        { title: "Defence Indigenisation", desc: "Reverse engineering, sample qualification, vendor development and Type Approval for imported sub-systems." },
+        { title: "Ordnance Factory Supplies", desc: "Machined components, fuze parts, casings and quality-controlled supply for ordnance manufacturers." },
+      ]}
+      capabilities={["DGAQA/CEMILAC links","Cleanroom assembly","5-axis CNC","NABL testing","NDT inspection","MIL-STD ruggedization","EMI/EMC support","Security cleared staff","Lifetime spares","Confidential vendor lists","Offset-partner ready","Strategic vetting"]}
+      whyUs={[
+        { title: "Strategic Trust", desc: "Long-standing DPSU and Armed Forces relationships built on confidentiality and quality." },
+        { title: "Indigenization Proven", desc: "Track record of converting imports to indigenous supply via SRIJAN, iDEX and offset routes." },
+        { title: "End-to-End Capability", desc: "Engineering, manufacturing, MRO and lifecycle support — single accountable partner." },
+      ]}
+    />
   );
 }
